@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": ["dom", "es2015", "es2017"],
+    "module": "commonjs",
+    "noEmit": true,
+    "sourceMap": false,
+    "strict": true,
+    "target": "esnext"
+  },
+  "include": ["./src/**/*"]
+}

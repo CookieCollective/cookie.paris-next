@@ -1,0 +1,16 @@
+overrides:
+  - files:
+      - "*.js"
+      - "*.jsx"
+      - "*.ts"
+      - "*.tsx"
+    options:
+      arrowParens: always
+      singleQuote: true
+      trailingComma: es5
+      useTabs: true
+  - files:
+      - "*.json"
+      - "*.yml"
+    options:
+      tabWidth: 2
