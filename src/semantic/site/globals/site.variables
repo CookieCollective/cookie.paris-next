@@ -1,0 +1,17 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@brandColor: #eb8e23;
+@brandHighlightColor: lighten(@brandColor, 10%);
+
+@fontName: 'Open Sans';
+
+@headerFont: 'Bebas Neue Bold', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont: @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+@pageBackground: url('../../../tmpbg.png');
+@textColor: #fff;
+
+@linkColor: @brandColor;
+@linkHoverColor: @brandHighlightColor;

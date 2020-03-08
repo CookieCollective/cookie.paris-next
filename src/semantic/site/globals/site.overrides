@@ -1,0 +1,17 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+hr {
+	margin: 1rem 0;
+}
+
+.ui.menu .item.icon-links a {
+	color: #ccc;
+	padding: 10px 5px;
+	margin: -10px -5px;
+
+	&:hover {
+		color: #fff;
+	}
+}

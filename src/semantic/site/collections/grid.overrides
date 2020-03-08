@@ -1,0 +1,32 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+@narrowGutterWidth: 0.5rem;
+
+.ui.grid.narrow {
+	margin: -@narrowGutterWidth / 2;
+
+	> .column:not(.row) {
+		padding: @narrowGutterWidth / 2;
+	}
+
+	> .row {
+		padding-top: @narrowGutterWidth / 2;
+		padding-bottom: @narrowGutterWidth / 2;
+
+		> .column {
+			padding-left: @narrowGutterWidth / 2;
+			padding-right: @narrowGutterWidth / 2;
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.ui.stackable.grid.narrow {
+		> .row > .column,
+		> .column:not(.row) {
+			padding: (@narrowGutterWidth / 2) (@narrowGutterWidth / 2) !important;
+		}
+	}
+}

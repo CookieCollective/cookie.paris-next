@@ -22,15 +22,38 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^2.19.17",
+    "@mdx-js/mdx": "^1.5.7",
+    "@mdx-js/react": "^1.5.7",
+    "gatsby": "^2.19.19",
+    "gatsby-image": "^2.2.41",
+    "gatsby-plugin-catch-links": "^2.1.25",
+    "gatsby-plugin-less": "^3.0.19",
+    "gatsby-plugin-mailchimp": "^5.1.2",
+    "gatsby-plugin-mdx": "^1.0.73",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-plugin-scss-typescript": "^4.0.10",
+    "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-typescript": "^2.1.27",
+    "gatsby-remark-autolink-headers": "^2.1.24",
+    "gatsby-remark-copy-linked-files": "^2.1.37",
+    "gatsby-remark-images": "^3.1.44",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-remark": "^2.6.53",
+    "gatsby-transformer-sharp": "^2.3.14",
+    "less": "^3.11.1",
+    "node-sass": "^4.13.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-masonry-infinite": "^1.2.2",
+    "semantic-ui-less": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
-    "@types/node": "^13.7.1",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
+    "@types/node": "^13.7.4",
+    "@types/react": "^16.9.22",
+    "@types/react-helmet": "^5.0.15",
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
@@ -41,6 +64,6 @@
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.2"
   }
 }

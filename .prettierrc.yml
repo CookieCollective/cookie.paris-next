@@ -1,9 +1,14 @@
 overrides:
   - files:
+      - "*.css"
       - "*.js"
       - "*.jsx"
+      - "*.less"
+      - "*.overrides"
+      - "*.scss"
       - "*.ts"
       - "*.tsx"
+      - "*.variables"
     options:
       arrowParens: always
       singleQuote: true
