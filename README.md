@@ -23,8 +23,9 @@ While [this PR is not merged yet], you'll have to follow this extra steps.
 
 Use [Yarn](https://yarnpkg.com/en/docs/install) for all steps, and not NPM!
 
-    git clone https://github.com/gatsbyjs/gatsby.git
+    git clone https://github.com/KoltesDigital/gatsby.git
     cd gatsby
+    git checkout gatsby-remark-images-use-babel
     yarn run bootstrap
     pushd packages/gatsby-plugin-sharp
     yarn link
