@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout } from '../components/layout';
-import { Text } from '../components/text';
+import { PageLayout } from '../components/page-layout';
+import { DefaultScreenLayout } from '../components/screen-layout';
 
 export default () => (
-	<Layout>
-		<Text title="About">
+	<DefaultScreenLayout>
+		<PageLayout title="About">
 			<p>
 				The Cookie Collective gathers digital artists involved in real-time
 				creation. This covers video games, art installations, video mapping,
@@ -26,6 +26,6 @@ export default () => (
 					the digital creation.
 				</li>
 			</ul>
-		</Text>
-	</Layout>
+		</PageLayout>
+	</DefaultScreenLayout>
 );

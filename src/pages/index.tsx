@@ -1,51 +1,37 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { Grid, IGridNode } from '../components/grid';
-import { Layout } from '../components/layout';
-
-interface IProps {
-	data?: {
-		allMdx: {
-			nodes: IGridNode[];
-		};
-	};
-}
-
-export const Index: React.FunctionComponent<IProps> = ({ data }) => {
-	return data ? (
-		<Layout>
-			<Grid nodes={data.allMdx.nodes}></Grid>
-		</Layout>
-	) : (
-		<div>Nothing</div>
-	);
-};
+import { Grid, GridNode } from '../components/grid';
+import { DefaultScreenLayout } from '../components/screen-layout';
 
 export const query = graphql`
 	query {
-		allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+		allMdx(
+			filter: { fields: { view: { eq: "index" } } }
+			sort: { fields: frontmatter___date, order: DESC }
+		) {
 			nodes {
-				excerpt
-				fields {
-					contentType
-					slug
-				}
-				frontmatter {
-					date(formatString: "ll")
-					endDate(formatString: "ll")
-					thumbnail {
-						childImageSharp {
-							fixed(width: 280) {
-								...GatsbyImageSharpFixed
-							}
-						}
-					}
-					title
-				}
-				id
+				...GridNode
 			}
 		}
 	}
 `;
+
+interface Props {
+	data?: {
+		allMdx: {
+			nodes: GridNode[];
+		};
+	};
+}
+
+export const Index: React.FunctionComponent<Props> = ({ data }) => {
+	return data ? (
+		<DefaultScreenLayout>
+			<Grid nodes={data.allMdx.nodes}></Grid>
+		</DefaultScreenLayout>
+	) : (
+		<div>Nothing</div>
+	);
+};
 
 export default Index;

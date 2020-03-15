@@ -1,103 +1,53 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
 
+const SOURCE_INSTANCE_NAME_TO_CONTENT_TYPE_MAPPING = {
+	events: 'event',
+	fanzines: 'fanzine',
+	galleries: 'gallery',
+	posts: 'post',
+};
+
 exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
-	if (node.internal.type === /*'MarkdownRemark'*/ 'Mdx') {
-		const { sourceInstanceName } = getNode(node.parent);
+	if (node.internal.type === 'Mdx') {
+		const { internal, name, sourceInstanceName } = getNode(node.parent);
 
-		switch (sourceInstanceName) {
-			case 'events': {
-				const relativeFilePath = createFilePath({
-					basePath: 'events',
-					getNode,
-					node,
-				});
-
-				createNodeField({
-					name: 'contentType',
-					node,
-					value: 'event',
-				});
-
-				createNodeField({
-					name: 'slug',
-					node,
-					value: `/events${relativeFilePath}`,
-				});
-
-				break;
-			}
-
-			case 'posts': {
-				const relativeFilePath = createFilePath({
-					basePath: 'posts',
-					getNode,
-					node,
-				});
-
-				createNodeField({
-					name: 'contentType',
-					node,
-					value: 'post',
-				});
-
-				createNodeField({
-					name: 'slug',
-					node,
-					value: `/posts${relativeFilePath}`,
-				});
-
-				break;
-			}
-
-			default:
-				throw new Error('Unknown source.');
+		const contentType =
+			SOURCE_INSTANCE_NAME_TO_CONTENT_TYPE_MAPPING[sourceInstanceName];
+		if (!contentType) {
+			console.log(JSON.stringify(internal));
+			throw new Error(
+				`No mapping from "${sourceInstanceName}" source instance name to content type, required by: ${internal.description}`
+			);
 		}
+
+		createNodeField({
+			name: 'contentType',
+			node,
+			value: contentType,
+		});
+
+		createNodeField({
+			name: 'view',
+			node,
+			value: name,
+		});
+
+		const relativeFilePath = createFilePath({
+			getNode,
+			node,
+		});
+
+		createNodeField({
+			name: 'slug',
+			node,
+			value: `/posts${relativeFilePath}`,
+		});
 	}
 };
-/*
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-	const { data } = await graphql(`
-		query {
-			allMarkdownRemark {
-				nodes {
-					fields {
-						contentType
-						slug
-					}
-				}
-			}
-		}
-	`);
 
-	data.allMarkdownRemark.nodes.forEach((node) => {
-		switch (node.fields.contentType) {
-			case 'event':
-				createPage({
-					component: path.resolve(__dirname, 'src', 'templates', 'event.tsx'),
-					context: {
-						slug: node.fields.slug,
-					},
-					path: node.fields.slug,
-				});
-				break;
+const templatesPath = path.resolve(__dirname, 'src', 'templates');
 
-			case 'post':
-				createPage({
-					component: path.resolve(__dirname, 'src', 'templates', 'post.tsx'),
-					context: {
-						slug: node.fields.slug,
-					},
-					path: node.fields.slug,
-				});
-				break;
-
-			default:
-				throw new Error('Unknown source.');
-		}
-	});
-};
-*/
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	const { data } = await graphql(`
 		query {
@@ -106,6 +56,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 					fields {
 						contentType
 						slug
+						view
 					}
 				}
 			}
@@ -113,30 +64,28 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	`);
 
 	data.allMdx.nodes.forEach((node) => {
+		createPage({
+			component: path.join(
+				templatesPath,
+				`${node.fields.contentType}-${node.fields.view}.tsx`
+			),
+			context: {
+				slug: node.fields.slug,
+			},
+			path: node.fields.slug,
+		});
+		/*
 		switch (node.fields.contentType) {
-			case 'event':
+			case 'fanzine':
 				createPage({
-					component: path.resolve(__dirname, 'src', 'templates', 'event.tsx'),
+					component: path.join(templatesPath, 'fanzine-online.tsx'),
 					context: {
 						slug: node.fields.slug,
 					},
-					path: node.fields.slug,
+					path: node.fields.slug + 'online',
 				});
 				break;
-
-			case 'post':
-				createPage({
-					component: path.resolve(__dirname, 'src', 'templates', 'post.tsx'),
-					context: {
-						slug: node.fields.slug,
-					},
-					path: node.fields.slug,
-				});
-				break;
-
-			default:
-				throw new Error('Unknown source.');
-		}
+		}*/
 	});
 };
 

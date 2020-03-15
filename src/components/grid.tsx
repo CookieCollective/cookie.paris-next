@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import MasonryInfiniteScroller from 'react-masonry-infinite';
@@ -6,7 +7,30 @@ import { Icon } from 'semantic-ui-react';
 import { ContentTypeIcon } from './content';
 import styles from './grid.module.scss';
 
-export interface IGridNode {
+export const query = graphql`
+	fragment GridNode on Mdx {
+		excerpt
+		fields {
+			contentType
+			slug
+		}
+		frontmatter {
+			date(formatString: "ll")
+			endDate(formatString: "ll")
+			thumbnail {
+				childImageSharp {
+					fixed(width: 280) {
+						...GatsbyImageSharpFixed
+					}
+				}
+			}
+			title
+		}
+		id
+	}
+`;
+
+export interface GridNode {
 	excerpt: string;
 	fields: {
 		contentType: string;
@@ -25,11 +49,11 @@ export interface IGridNode {
 	id: string;
 }
 
-interface IProps {
-	nodes: IGridNode[];
+interface Props {
+	nodes: GridNode[];
 }
 
-export const Grid: React.FunctionComponent<IProps> = ({ nodes }) => (
+export const Grid: React.FunctionComponent<Props> = ({ nodes }) => (
 	<MasonryInfiniteScroller
 		className={styles.grid}
 		hasMore={false}

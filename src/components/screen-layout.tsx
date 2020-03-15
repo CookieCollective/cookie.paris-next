@@ -10,8 +10,8 @@ import {
 	Segment,
 	Sidebar,
 } from 'semantic-ui-react';
-import styles from './layout.module.scss';
 import { NewsletterForm } from './newsletter-form';
+import styles from './screen-layout.module.scss';
 import { SEO } from './seo';
 
 const IconLinks: React.FunctionComponent = () => (
@@ -27,11 +27,11 @@ const IconLinks: React.FunctionComponent = () => (
 			<Icon name="facebook" />
 		</a>
 		<a
-			href="https://twitter.com/CookieDemoparty"
+			href="https://github.com/CookieCollective"
 			target="_blank"
-			title="Visit our Twitter page"
+			title="Visit our GitHub page"
 		>
-			<Icon name="twitter" />
+			<Icon name="github" />
 		</a>
 		<a
 			href="https://www.instagram.com/cookiedemoparty/"
@@ -41,11 +41,18 @@ const IconLinks: React.FunctionComponent = () => (
 			<Icon name="instagram" />
 		</a>
 		<a
-			href="https://github.com/CookieCollective"
+			href="https://www.twitch.tv/cookiecollectif"
 			target="_blank"
-			title="Visit our GitHub page"
+			title="Visit our Twitch page"
 		>
-			<Icon name="github" />
+			<Icon name="twitch" />
+		</a>
+		<a
+			href="https://twitter.com/CookieDemoparty"
+			target="_blank"
+			title="Visit our Twitter page"
+		>
+			<Icon name="twitter" />
 		</a>
 		<a
 			href="https://www.youtube.com/channel/UC20eaOqnUX156pkXtlWg9Kw"
@@ -74,11 +81,8 @@ class DesktopContainer extends React.Component {
 						<Menu.Item as={Link} to="/fanzines/">
 							Fanzines
 						</Menu.Item>
-						<Menu.Item as={Link} to="/media/">
-							Media
-						</Menu.Item>
-						<Menu.Item as={Link} to="/projects/">
-							Projects
+						<Menu.Item as={Link} to="/galleries/">
+							Galleries
 						</Menu.Item>
 
 						<Menu.Menu position="right">
@@ -119,7 +123,7 @@ class MobileContainer extends React.Component {
 				<Sidebar
 					as={Menu}
 					animation="push"
-					onHide={this.handleSidebarHide}
+					onHide={this.hideSidebar}
 					vertical
 					visible={sidebarOpened}
 				>
@@ -152,7 +156,7 @@ class MobileContainer extends React.Component {
 					>
 						<Container>
 							<Menu secondary size="large">
-								<Menu.Item onClick={this.handleToggle}>
+								<Menu.Item onClick={this.showSidebar}>
 									<Icon name="sidebar" />
 								</Menu.Item>
 								<Menu.Menu position="right">
@@ -173,25 +177,23 @@ class MobileContainer extends React.Component {
 		);
 	}
 
-	private handleSidebarHide = () => this.setState({ sidebarOpened: false });
-	private handleToggle = () => this.setState({ sidebarOpened: true });
+	private hideSidebar = () => this.setState({ sidebarOpened: false });
+	private showSidebar = () => this.setState({ sidebarOpened: true });
 }
 
 const ResponsiveContainer: React.FunctionComponent = ({ children }) => (
-	<React.Fragment>
+	<>
 		<DesktopContainer>{children}</DesktopContainer>
 		<MobileContainer>{children}</MobileContainer>
-	</React.Fragment>
+	</>
 );
 
-export class Layout extends React.Component {
-	state = {};
-
+export class DefaultScreenLayout extends React.Component {
 	render() {
 		const { children } = this.props;
 
 		return (
-			<React.Fragment>
+			<>
 				<SEO />
 				<ResponsiveContainer>
 					<Segment>{children}</Segment>
@@ -225,7 +227,20 @@ export class Layout extends React.Component {
 						</Container>
 					</Segment>
 				</ResponsiveContainer>
-			</React.Fragment>
+			</>
+		);
+	}
+}
+
+export class FullScreenLayout extends React.Component {
+	render() {
+		const { children } = this.props;
+
+		return (
+			<>
+				<SEO />
+				{children}
+			</>
 		);
 	}
 }

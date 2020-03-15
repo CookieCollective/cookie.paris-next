@@ -5,4 +5,12 @@
 	margin: 0 auto;
 	max-width: 1000px;
 	padding: 20px;
+
+	&:after {
+		clear: both;
+		content: '.';
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
 }

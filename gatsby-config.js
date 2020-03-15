@@ -1,5 +1,7 @@
 const path = require('path');
 
+const contentsPath = path.join(__dirname, 'src', 'contents');
+
 module.exports = {
 	plugins: [
 		'gatsby-plugin-typescript',
@@ -9,14 +11,28 @@ module.exports = {
 		{
 			options: {
 				name: 'events',
-				path: path.join(__dirname, 'src', 'events'),
+				path: path.join(contentsPath, 'events'),
+			},
+			resolve: 'gatsby-source-filesystem',
+		},
+		{
+			options: {
+				name: 'fanzines',
+				path: path.join(contentsPath, 'fanzines'),
+			},
+			resolve: 'gatsby-source-filesystem',
+		},
+		{
+			options: {
+				name: 'galleries',
+				path: path.join(contentsPath, 'galleries'),
 			},
 			resolve: 'gatsby-source-filesystem',
 		},
 		{
 			options: {
 				name: 'posts',
-				path: path.join(__dirname, 'src', 'posts'),
+				path: path.join(contentsPath, 'posts'),
 			},
 			resolve: 'gatsby-source-filesystem',
 		},
@@ -31,26 +47,6 @@ module.exports = {
 		},
 		'gatsby-transformer-sharp',
 		'gatsby-remark-images',
-		{
-			options: {
-				plugins: [
-					{
-						options: {
-							maxWidth: 960,
-						},
-						resolve: 'gatsby-remark-images',
-					},
-					{
-						options: {
-							destinationDir: 'static',
-						},
-						resolve: 'gatsby-remark-copy-linked-files',
-					},
-					'gatsby-remark-autolink-headers',
-				],
-			},
-			resolve: 'gatsby-transformer-remark',
-		},
 		{
 			options: {
 				extensions: ['.md', '.mdx'],

@@ -7,7 +7,7 @@ export const query = graphql`
 	query {
 		allMdx(
 			filter: {
-				fields: { contentType: { eq: "event" }, view: { eq: "index" } }
+				fields: { contentType: { eq: "gallery" }, view: { eq: "index" } }
 			}
 			sort: { fields: frontmatter___date, order: DESC }
 		) {
@@ -26,7 +26,7 @@ interface Props {
 	};
 }
 
-export const Events: React.FunctionComponent<Props> = ({ data }) => {
+export const Galleries: React.FunctionComponent<Props> = ({ data }) => {
 	return (
 		<DefaultScreenLayout>
 			<Grid nodes={data.allMdx.nodes}></Grid>
@@ -34,4 +34,4 @@ export const Events: React.FunctionComponent<Props> = ({ data }) => {
 	);
 };
 
-export default Events;
+export default Galleries;

@@ -2,31 +2,39 @@
          Site Overrides
 *******************************/
 
-@narrowGutterWidth: 0.5rem;
+.gutter(@width) {
+	& {
+		margin: -@width / 2;
 
-.ui.grid.narrow {
-	margin: -@narrowGutterWidth / 2;
+		> .column:not(.row) {
+			padding: @width / 2;
+		}
 
-	> .column:not(.row) {
-		padding: @narrowGutterWidth / 2;
+		> .row {
+			padding-top: @width / 2;
+			padding-bottom: @width / 2;
+
+			> .column {
+				padding-left: @width / 2;
+				padding-right: @width / 2;
+			}
+		}
 	}
 
-	> .row {
-		padding-top: @narrowGutterWidth / 2;
-		padding-bottom: @narrowGutterWidth / 2;
-
-		> .column {
-			padding-left: @narrowGutterWidth / 2;
-			padding-right: @narrowGutterWidth / 2;
+	@media only screen and (max-width: 767px) {
+		&.stackable {
+			> .row > .column,
+			> .column:not(.row) {
+				padding: (@width / 2) (@width / 2) !important;
+			}
 		}
 	}
 }
 
-@media only screen and (max-width: 767px) {
-	.ui.stackable.grid.narrow {
-		> .row > .column,
-		> .column:not(.row) {
-			padding: (@narrowGutterWidth / 2) (@narrowGutterWidth / 2) !important;
-		}
-	}
+.ui.grid.narrow {
+	.gutter(0.5rem);
+}
+
+.ui.grid.seamless {
+	.gutter(0px);
 }
