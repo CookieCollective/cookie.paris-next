@@ -27,7 +27,7 @@ interface Props {
 				slug: string;
 			};
 			frontmatter: {
-				file: {
+				file?: {
 					publicURL: string;
 				};
 			};
@@ -44,9 +44,11 @@ export const Fanzine: React.FunctionComponent<Props> = ({ data: { node } }) => {
 						<Button as={Link} primary to={`${node.fields.slug}online/`}>
 							Read online
 						</Button>
-						<Button secondary href={node.frontmatter.file.publicURL}>
-							Download PDF
-						</Button>
+						{node.frontmatter.file ? (
+							<Button secondary href={node.frontmatter.file.publicURL}>
+								Download PDF
+							</Button>
+						) : null}
 					</p>
 				}
 				node={node}

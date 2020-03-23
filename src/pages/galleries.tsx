@@ -6,9 +6,7 @@ import { DefaultScreenLayout } from '../components/screen-layout';
 export const query = graphql`
 	query {
 		allMdx(
-			filter: {
-				fields: { contentType: { eq: "gallery" }, view: { eq: "index" } }
-			}
+			filter: { fields: { contentType: { eq: "gallery" } } }
 			sort: { fields: frontmatter___date, order: DESC }
 		) {
 			nodes {
