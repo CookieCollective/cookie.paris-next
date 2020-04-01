@@ -9,8 +9,7 @@ location: >
 organizer: /tmp/lab
 title: Hackerfest 2020
 type: external
+thumbnail: thumbnail.png
 ---
-
-Léon will be in da place!
 
 > Ce festival s'adresse à tou·te·s les membres de hackerspaces et à toutes les personnes non membres d'un hackerspace ayant un discours ou des pratiques interrogeant technologie et créativité.
