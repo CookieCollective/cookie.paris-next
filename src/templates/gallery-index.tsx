@@ -1,8 +1,5 @@
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { Image } from 'semantic-ui-react';
 import { PostLayout, PostNode } from '../components/post-layout';
 import { DefaultScreenLayout } from '../components/screen-layout';
 

@@ -5,10 +5,7 @@ import { DefaultScreenLayout } from '../components/screen-layout';
 
 export const query = graphql`
 	query {
-		allMdx(
-			filter: { fields: { view: { eq: "index" } } }
-			sort: { fields: frontmatter___date, order: DESC }
-		) {
+		allMdx(sort: { fields: frontmatter___date, order: DESC }) {
 			nodes {
 				...GridNode
 			}
