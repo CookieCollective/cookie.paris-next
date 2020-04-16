@@ -1,11 +1,30 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
 
-const SOURCE_INSTANCE_NAME_TO_CONTENT_TYPE_MAPPING = {
-	events: 'event',
-	fanzines: 'fanzine',
-	galleries: 'gallery',
-	posts: 'post',
+const SOURCE_PROPERTIES = {
+	events: {
+		collection: 'events',
+		post: true,
+		template: 'event',
+	},
+	fanzines: {
+		collection: 'media',
+		post: true,
+		template: 'fanzine',
+	},
+	galleries: {
+		collection: 'media',
+		post: true,
+		template: 'gallery',
+	},
+	posts: {
+		post: true,
+		template: 'post',
+	},
+	static: {
+		post: false,
+		template: 'static',
+	},
 };
 
 exports.onCreateNode = async ({
@@ -22,31 +41,50 @@ exports.onCreateNode = async ({
 			);
 		}
 
-		const contentType =
-			SOURCE_INSTANCE_NAME_TO_CONTENT_TYPE_MAPPING[sourceInstanceName];
-		if (!contentType) {
+		const sourceProperty = SOURCE_PROPERTIES[sourceInstanceName];
+		if (!sourceProperty) {
 			console.log(JSON.stringify(internal));
-			throw new Error(
-				`No mapping from "${sourceInstanceName}" source instance name to content type, required by: ${internal.description}`
-			);
+			throw new Error(`Source "${sourceInstanceName}" has no properties`);
 		}
 
 		createNodeField({
-			name: 'contentType',
+			name: 'post',
 			node,
-			value: contentType,
+			value: sourceProperty.post,
 		});
+
+		createNodeField({
+			name: 'template',
+			node,
+			value: sourceProperty.template,
+		});
+
+		if (sourceProperty.collection) {
+			createNodeField({
+				name: 'collection',
+				node,
+				value: sourceProperty.collection,
+			});
+		}
 
 		const relativeFilePath = createFilePath({
 			getNode,
 			node,
 		});
 
-		createNodeField({
-			name: 'slug',
-			node,
-			value: `/posts${relativeFilePath}`,
-		});
+		if (sourceInstanceName === 'static') {
+			createNodeField({
+				name: 'slug',
+				node,
+				value: relativeFilePath,
+			});
+		} else {
+			createNodeField({
+				name: 'slug',
+				node,
+				value: `/posts${relativeFilePath}`,
+			});
+		}
 	}
 };
 
@@ -78,7 +116,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 			allMdx {
 				nodes {
 					fields {
-						contentType
+						template
 						slug
 					}
 					id
@@ -92,7 +130,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 			createPage({
 				component: path.join(
 					templatesPath,
-					`${node.fields.contentType}-index.tsx`
+					`${node.fields.template}-index.tsx`
 				),
 				context: {
 					slug: node.fields.slug,
@@ -100,7 +138,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 				path: node.fields.slug,
 			});
 
-			switch (node.fields.contentType) {
+			switch (node.fields.template) {
 				case 'fanzine':
 					await createFanzineOnlinePages({
 						allImageSharp,
@@ -201,10 +239,7 @@ async function createFanzineOnlinePages({
 		: [];
 
 	createPage({
-		component: path.join(
-			templatesPath,
-			`${node.fields.contentType}-online.tsx`
-		),
+		component: path.join(templatesPath, `${node.fields.template}-online.tsx`),
 		context: {
 			pages,
 			slug: node.fields.slug,
@@ -212,18 +247,3 @@ async function createFanzineOnlinePages({
 		path: node.fields.slug + 'online/',
 	});
 }
-
-exports.onCreateWebpackConfig = ({ actions }) => {
-	actions.setWebpackConfig({
-		resolve: {
-			alias: {
-				'../../theme.config$': path.resolve(
-					__dirname,
-					'src',
-					'semantic',
-					'theme.config'
-				),
-			},
-		},
-	});
-};

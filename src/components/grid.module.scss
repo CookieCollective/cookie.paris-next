@@ -1,41 +1,18 @@
-@import '../styles/settings.scss';
-
 .grid {
-	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
 
-	a {
-		color: #fff;
+	* {
+		flex: 1 1 100%;
 	}
 
-	.item {
-		background-color: $transparent-background-color;
-		max-width: 320px;
-		width: 100%;
-	}
+	@media screen and (min-width: 961px) {
+		.n1d1 {
+			flex-basis: 100%;
+		}
 
-	.link {
-		display: block;
-		padding: 20px;
-		width: 100%;
-	}
-
-	.content-type {
-		float: right;
-		font-size: 0.8em;
-	}
-
-	.date {
-		font-size: 0.8em;
-		margin-bottom: 0.25em;
-	}
-
-	.thumbnail {
-		margin: 10px 0;
-	}
-
-	.title {
-		font-family: $font-heading;
-		font-size: 1.8em;
-		margin-bottom: 0.5em;
+		.n1d2 {
+			flex-basis: 50%;
+		}
 	}
 }

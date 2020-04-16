@@ -1,6 +1,5 @@
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React, { FormEvent } from 'react';
-import { Button, Input } from 'semantic-ui-react';
 
 export class NewsletterForm extends React.Component {
 	state = {
@@ -18,21 +17,25 @@ export class NewsletterForm extends React.Component {
 			) : (
 				<React.Fragment>
 					<p dangerouslySetInnerHTML={{ __html: this.state.message }}></p>
-					<Button onClick={this.handleRetry}>Retry</Button>
+					<button onClick={this.handleRetry}>Retry</button>
 				</React.Fragment>
 			)
 		) : this.state.sending ? (
 			<p>Subscribing...</p>
 		) : (
 			<form onSubmit={this.handleSubscribe}>
-				<Input
-					action="Subscribe"
-					name="email"
-					onChange={this.handleChange}
-					placeholder="Email address"
-					value={this.state.email}
-					type="email"
-				/>
+				<div>
+					<input
+						name="email"
+						onChange={this.handleChange}
+						placeholder="Email address"
+						value={this.state.email}
+						type="email"
+					/>
+				</div>
+				<div>
+					<button type="submit">Subscribe or update your subscription</button>
+				</div>
 			</form>
 		);
 

@@ -22,9 +22,9 @@ interface Props {
 	};
 }
 
-export const Post: React.FunctionComponent<Props> = ({
+export const Static: React.FunctionComponent<Props> = ({
 	data: { node },
 	pageContext: { slug },
 }) => <DefaultContentLayout node={node} slug={slug} />;
 
-export default Post;
+export default Static;

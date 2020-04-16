@@ -1,0 +1,23 @@
+@import '../styles/settings.scss';
+
+.grid {
+	margin: 0 auto;
+
+	.item {
+		display: block;
+		max-width: 280px;
+		width: 100%;
+	}
+
+	.thumbnail {
+		margin: 10px 0;
+	}
+
+	.title {
+		@include heading;
+
+		font-size: 3em;
+		line-height: 0.8em;
+		margin-bottom: 0.5em;
+	}
+}

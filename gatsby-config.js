@@ -36,6 +36,13 @@ module.exports = {
 			},
 			resolve: 'gatsby-source-filesystem',
 		},
+		{
+			options: {
+				name: 'static',
+				path: path.join(contentsPath, 'static'),
+			},
+			resolve: 'gatsby-source-filesystem',
+		},
 		'gatsby-plugin-catch-links',
 		{
 			options: {
@@ -53,7 +60,7 @@ module.exports = {
 				gatsbyRemarkPlugins: [
 					{
 						options: {
-							maxWidth: 960,
+							maxWidth: 1200,
 						},
 						resolve: 'gatsby-remark-images',
 					},

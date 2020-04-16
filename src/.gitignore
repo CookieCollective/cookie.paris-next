@@ -1,2 +1,1 @@
-*.d.ts
-!/types.d.ts
+*.module.scss.d.ts

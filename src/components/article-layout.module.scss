@@ -1,0 +1,31 @@
+@import '../styles/settings.scss';
+
+.article {
+	background-color: $transparent-background-color;
+	box-shadow: 0 0 10px 10px $transparent-background-color;
+	border-radius: 5px;
+	margin: auto;
+	max-width: 800px;
+	padding: 20px;
+
+	&:after {
+		clear: both;
+		content: '.';
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
+
+	header {
+		.image {
+			margin: auto;
+			max-height: 400px;
+		}
+	}
+
+	.content {
+		a {
+			text-decoration: underline;
+		}
+	}
+}

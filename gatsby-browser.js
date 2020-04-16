@@ -1,2 +1,6 @@
-//import 'semantic-ui-css/semantic.min.css';
-import 'semantic-ui-less/semantic.less';
+import './src/styles/index.scss';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+library.add(fab);

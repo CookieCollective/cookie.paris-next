@@ -1,16 +1,64 @@
 @import '../styles/settings.scss';
 
-.container {
-	background-color: $transparent-background-color;
-	margin: 0 auto;
-	max-width: 1000px;
-	padding: 20px;
+.title,
+.subtitle,
+.social-links,
+.page-links {
+	@include heading;
 
-	&:after {
-		clear: both;
-		content: '.';
-		display: block;
-		height: 0;
-		visibility: hidden;
+	text-align: center;
+}
+
+.title {
+	font-size: 3.5em;
+	line-height: 0.8em;
+	margin-top: 0.2em;
+}
+
+.subtitle {
+	font-size: 1.5em;
+}
+
+.social-links {
+	font-size: 1.2em;
+
+	.icons {
+		margin: 0 15px;
+
+		* {
+			margin: 0 1px;
+		}
 	}
+
+	a {
+		color: #ccc;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+.page-links {
+	font-size: 1.6em;
+	margin-top: 0.4em;
+
+	a {
+		color: #ccc;
+		padding: 10px 5px;
+		margin: 0 10px;
+
+		&:hover {
+			color: #fff;
+		}
+
+		&.active {
+			color: #fff;
+			font-size: 1.2em;
+		}
+	}
+}
+
+.main {
+	margin-bottom: 60px;
 }

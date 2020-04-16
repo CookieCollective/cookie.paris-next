@@ -1,0 +1,14 @@
+@import '../styles/settings.scss';
+
+.links {
+	@include heading;
+
+	font-size: 2em;
+	margin: 40px 0;
+	text-align: center;
+
+	* {
+		margin: 0 20px;
+		padding: 20px;
+	}
+}

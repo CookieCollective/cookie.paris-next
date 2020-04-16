@@ -1,8 +1,10 @@
 import { graphql, Link } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
-import { Button } from 'semantic-ui-react';
-import { PostLayout, PostNode } from '../components/post-layout';
-import { DefaultScreenLayout } from '../components/screen-layout';
+import { ArticleLayout } from '../components/article-layout';
+import { BodyRenderer } from '../components/body-renderer';
+import { ContentNode } from '../components/default-content-layout';
+import styles from './fanzine-index.module.scss';
 
 export const query = graphql`
 	query($slug: String!) {
@@ -22,7 +24,7 @@ export const query = graphql`
 
 interface Props {
 	data: {
-		node: PostNode & {
+		node: ContentNode & {
 			fields: {
 				slug: string;
 			};
@@ -33,27 +35,31 @@ interface Props {
 			};
 		};
 	};
+	pageContext: {
+		slug: string;
+	};
 }
 
-export const Fanzine: React.FunctionComponent<Props> = ({ data: { node } }) => {
+export const Fanzine: React.FunctionComponent<Props> = ({
+	data: { node },
+	pageContext: { slug },
+}) => {
 	return (
-		<DefaultScreenLayout>
-			<PostLayout
-				afterTitle={
-					<p>
-						<Button as={Link} primary to={`${node.fields.slug}online/`}>
-							Read online
-						</Button>
-						{node.frontmatter.file ? (
-							<Button secondary href={node.frontmatter.file.publicURL}>
-								Download PDF
-							</Button>
-						) : null}
-					</p>
-				}
-				node={node}
-			/>
-		</DefaultScreenLayout>
+		<ArticleLayout
+			date={node.frontmatter.date}
+			endDate={node.frontmatter.endDate}
+			slug={slug}
+			thumbnail={node.frontmatter.thumbnail}
+			title={node.frontmatter.title}
+		>
+			<div className={styles.links}>
+				<Link to={`${node.fields.slug}online/`}>Read online</Link>
+				{node.frontmatter.file ? (
+					<a href={node.frontmatter.file.publicURL}>Download PDF</a>
+				) : null}
+			</div>
+			<BodyRenderer>{node.body}</BodyRenderer>
+		</ArticleLayout>
 	);
 };
 

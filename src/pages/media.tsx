@@ -5,7 +5,7 @@ import { GridNode, MasonryLayout } from '../components/masonry-layout';
 export const query = graphql`
 	query {
 		allMdx(
-			filter: { fields: { collection: { eq: "events" }, post: { eq: true } } }
+			filter: { fields: { collection: { eq: "media" } } }
 			sort: { fields: frontmatter___date, order: DESC }
 		) {
 			nodes {
@@ -23,7 +23,7 @@ interface Props {
 	};
 }
 
-export const Events: React.FunctionComponent<Props> = ({ data }) =>
-	data ? <MasonryLayout nodes={data.allMdx.nodes} slug="/events/" /> : null;
+export const Galleries: React.FunctionComponent<Props> = ({ data }) =>
+	data ? <MasonryLayout nodes={data.allMdx.nodes} slug="/media/" /> : null;
 
-export default Events;
+export default Galleries;

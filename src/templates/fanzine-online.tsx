@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React, { useState } from 'react';
-import { Grid, GridColumn } from 'semantic-ui-react';
-import { FullScreenLayout } from '../components/screen-layout';
+import { FullScreenLayout } from '../components/full-screen-layout';
+import { Cell, Grid, GutterSize } from '../components/grid';
 import styles from './fanzine-online.module.scss';
 
 export const query = graphql`
@@ -42,10 +42,9 @@ interface Props {
 }
 
 export const FanzineOnline: React.FunctionComponent<Props> = ({
-	data: { node },
 	pageContext: { pages },
 }) => {
-	const pageElements = pages.map((page, pageIndex) => {
+	const cells = pages.map((page, pageIndex) => {
 		const [backgroundOpacity, setBackgroundOpacity] = useState(1);
 		const [pictureOpacity, setPictureOpacity] = useState(0);
 
@@ -100,7 +99,7 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 		);
 
 		return (
-			<GridColumn key={pageIndex}>
+			<Cell key={pageIndex}>
 				{page.link ? (
 					<a href={page.link} target="_blank">
 						{content}
@@ -108,14 +107,14 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 				) : (
 					content
 				)}
-			</GridColumn>
+			</Cell>
 		);
 	});
 
 	return (
 		<FullScreenLayout>
-			<Grid className="seamless" columns={2} stackable>
-				{pageElements}
+			<Grid columns={2} gutterSize={GutterSize.None}>
+				{cells}
 			</Grid>
 		</FullScreenLayout>
 	);

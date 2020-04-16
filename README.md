@@ -2,11 +2,6 @@
 
 Sources of https://cookie.paris/ which are transformed into static pages by [Gatsby](https://www.gatsbyjs.org/).
 
-## Content Type
-
-1. Events
-1. Posts
-
 ## Environment setup
 
 1. Clone
@@ -15,7 +10,7 @@ Sources of https://cookie.paris/ which are transformed into static pages by [Gat
 
 ### Clone
 
-Clone the repository and execute `npm install` inside.
+Clone the repository and execute `yarn install` inside.
 
 ### Apply patch
 
@@ -43,4 +38,4 @@ In this repository's clone:
 
 In this repository's clone:
 
-    npm start
+    yarn start

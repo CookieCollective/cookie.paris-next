@@ -1,5 +1,11 @@
 $background-color: black;
 $color: white;
-$font-heading: 'Bebas Neue Bold', sans-serif;
-$font-normal: 'Open Sans', sans-serif;
-$transparent-background-color: rgba(#222, 0.8);
+$font-heading-family: 'Bebas Neue Bold', 'Helvetica Neue', Arial, Helvetica,
+	sans-serif;
+$font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$font-size: 20px;
+$transparent-background-color: rgba(#000, 0.7);
+
+@mixin heading {
+	font-family: $font-heading-family;
+}

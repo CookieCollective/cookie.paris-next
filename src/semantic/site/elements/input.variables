@@ -1,7 +1,0 @@
-/*******************************
-    User Variable Overrides
-*******************************/
-
-@inputColor: #222;
-@placeholderColor: #777;
-@placeholderFocusColor: #bbb;

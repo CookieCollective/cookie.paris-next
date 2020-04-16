@@ -1,7 +1,74 @@
+@import './settings';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 @font-face {
 	font-family: 'Bebas Neue Bold';
 	src: url('bebasneue_bold.woff2') format('woff2'),
 		url('bebasneue_bold.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background: $background-color url('../tmpbg.png');
+	color: $color;
+	font-size: $font-size;
+	font-family: $font-family;
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	color: $color;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include heading;
+}
+
+header {
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+	margin: 0;
+}
+
+blockquote {
+	font-style: italic;
+}
+
+button,
+input {
+	font: $font-family;
+	font-size: $font-size;
+	padding: 5px;
+	width: 100%;
+}
+
+button {
+	@include heading;
+
+	background: none;
+	border: 0;
+	cursor: pointer;
+	color: $color;
+	font-size: 1.5em;
 }

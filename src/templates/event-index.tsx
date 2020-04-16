@@ -1,7 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { PostLayout, PostNode } from '../components/post-layout';
-import { DefaultScreenLayout } from '../components/screen-layout';
+import {
+	ContentNode,
+	DefaultContentLayout,
+} from '../components/default-content-layout';
 
 export const query = graphql`
 	query($slug: String!) {
@@ -13,16 +15,16 @@ export const query = graphql`
 
 interface Props {
 	data: {
-		node: PostNode;
+		node: ContentNode;
+	};
+	pageContext: {
+		slug: string;
 	};
 }
 
-export const Event: React.FunctionComponent<Props> = ({ data: { node } }) => {
-	return (
-		<DefaultScreenLayout>
-			<PostLayout node={node} />
-		</DefaultScreenLayout>
-	);
-};
+export const Event: React.FunctionComponent<Props> = ({
+	data: { node },
+	pageContext: { slug },
+}) => <DefaultContentLayout node={node} slug={slug} />;
 
 export default Event;

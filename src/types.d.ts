@@ -10,10 +10,17 @@ declare module 'gatsby-plugin-mailchimp' {
 declare module 'react-masonry-infinite' {
 	import React from 'react';
 
+	export interface Size {
+		columns: number;
+		gutter: number;
+		mq?: string;
+	}
+
 	export default class extends React.Component<{
 		className?: string;
 		hasMore: boolean;
 		loadMore: () => void;
+		sizes?: Size[];
 	}> {}
 }
 
