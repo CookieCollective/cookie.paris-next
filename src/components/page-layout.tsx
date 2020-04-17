@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import { Link } from 'gatsby';
 import React from 'react';
+import { Background } from './background';
 import styles from './page-layout.module.scss';
 import { SEO } from './seo';
 
@@ -15,6 +16,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 }) => (
 	<>
 		<SEO />
+		<Background kind="main" />
 
 		<header>
 			<div className={styles.title}>Cookie Collective</div>

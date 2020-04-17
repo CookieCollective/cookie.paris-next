@@ -4,7 +4,7 @@ import { FullScreenLayout } from '../components/full-screen-layout';
 
 export const Index: React.FunctionComponent = ({}) => {
 	return (
-		<FullScreenLayout>
+		<FullScreenLayout backgroundKind="welcome">
 			<Link to="/posts">Enter website</Link>
 		</FullScreenLayout>
 	);
