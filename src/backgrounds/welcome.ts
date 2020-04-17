@@ -32,9 +32,10 @@ function actualMount(
 ) {
 	container.appendChild(canvas);
 
+	const frameAttachments = [ { format: gl.RGBA, mag: gl.NEAREST, min: gl.NEAREST }, { format: gl.STENCIL_INDEX8 } ];
 	const frames = [
-		twgl.createFramebufferInfo(gl),
-		twgl.createFramebufferInfo(gl),
+		twgl.createFramebufferInfo(gl, frameAttachments),
+		twgl.createFramebufferInfo(gl, frameAttachments),
 	];
 	let currentFrame = 0;
 
@@ -70,11 +71,11 @@ function actualMount(
 	);
 
 	const SEQUENCE_MATERIALS = [
+		materials.feedback,
 		materials.rgbGlitch,
 		materials.rainbowCircle,
-		materials.feedback,
 	];
-	const SEQUENCE_DURATION_TIME = 3;
+	const SEQUENCE_DURATION_TIME = 10;
 
 	let currentSequenceIndex = 0;
 	let sequenceElapsedTime = 0;
@@ -100,8 +101,8 @@ function actualMount(
 
 	const onWindowResize = () => {
 		twgl.resizeCanvasToDisplaySize(canvas);
-		twgl.resizeFramebufferInfo(gl, frames[0]);
-		twgl.resizeFramebufferInfo(gl, frames[1]);
+		twgl.resizeFramebufferInfo(gl, frames[0], frameAttachments);
+		twgl.resizeFramebufferInfo(gl, frames[1], frameAttachments);
 
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
