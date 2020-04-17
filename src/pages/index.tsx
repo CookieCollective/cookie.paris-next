@@ -7,7 +7,7 @@ export const Index: React.FunctionComponent = ({}) => {
 	return (
 		<FullScreenLayout backgroundKind="welcome">
 			<Link className={styles.center} to="/posts">
-				<img src="/cookie-collective-shadow.png" />
+				<img src="/cookie-collective.png" />
 			</Link>
 		</FullScreenLayout>
 	);
