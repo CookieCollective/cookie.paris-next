@@ -134,13 +134,13 @@ function actualMount(
 
 		uniforms.tick++;
 		currentFrame = 1 - currentFrame;
-		if (sequenceElapsedTime > SEQUENCE_DURATION_TIME) {
-			sequenceElapsedTime = 0;
-			currentSequenceIndex =
-				(currentSequenceIndex + 1) % SEQUENCE_MATERIALS.length;
-		} else {
-			sequenceElapsedTime += dt;
-		}
+		// if (sequenceElapsedTime > SEQUENCE_DURATION_TIME) {
+		// 	sequenceElapsedTime = 0;
+		// 	currentSequenceIndex =
+		// 		(currentSequenceIndex + 1) % SEQUENCE_MATERIALS.length;
+		// } else {
+		// 	sequenceElapsedTime += dt;
+		// }
 
 		requestAnimationFrame(render);
 	};
