@@ -1,6 +1,7 @@
 export type BackgroundKind = 'main' | 'welcome' | undefined;
 
 export interface MountedModule {
+	readonly element: HTMLElement;
 	unmount(): void;
 }
 
@@ -28,9 +29,17 @@ if (typeof window !== 'undefined') {
 
 	function mountModule(module: Module) {
 		if (currentMountedModule) {
-			setTimeout(unmountModule, 1000, currentMountedModule);
+			setTimeout(unmountModule, 400, currentMountedModule);
 		}
 		currentMountedModule = module.mount(container);
+		currentMountedModule.element.style.transition = 'opacity 300ms linear';
+		setTimeout(
+			(style: CSSStyleDeclaration) => {
+				style.opacity = '1';
+			},
+			100,
+			currentMountedModule.element.style
+		);
 	}
 
 	backgroundService.display = (kind) => {
@@ -42,6 +51,10 @@ if (typeof window !== 'undefined') {
 		switch (kind) {
 			case 'main':
 				import('./backgrounds/main').then(mountModule);
+				break;
+
+			case 'welcome':
+				import('./backgrounds/welcome').then(mountModule);
 				break;
 
 			default:

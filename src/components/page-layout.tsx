@@ -19,7 +19,9 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 		<Background kind="main" />
 
 		<header>
-			<div className={styles.title}>Cookie Collective</div>
+			<div className={styles.title}>
+				<Link to="/">Cookie Collective</Link>
+			</div>
 			<div className={styles.subtitle}>
 				Digital artists involved in real-time creation
 			</div>
@@ -83,9 +85,9 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 						<FontAwesomeIcon icon={['fab', 'youtube']} />
 					</a>
 				</span>
-				<a href="/newsletter/" title="Subscribe to the newsletter">
+				<Link to="/newsletter/" title="Subscribe to the newsletter">
 					Newsletter
-				</a>
+				</Link>
 			</div>
 		</header>
 

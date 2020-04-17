@@ -1,49 +1,7 @@
+import FRAGMENT_SHADER from 'raw-loader!./shaders/main.frag';
+import VERTEX_SHADER from 'raw-loader!./shaders/main.vert';
 import * as twgl from 'twgl.js';
 import { m4 } from 'twgl.js';
-
-const VERTEX_SHADER = `
-precision mediump float;
-
-attribute vec4 position;
-attribute vec4 seed;
-
-uniform mat4 viewProjection;
-uniform float time;
-uniform vec2 resolution;
-
-varying vec4 vColor;
-
-mat2 rotation (float a) { float c=cos(a),s=sin(a); return mat2(c,-s,s,c); }
-
-void main () {
-	vec4 pos = position;
-	float t = time * 0.1 + seed.w * 3.1415 * 2.;
-	float wave = mod(time * 0.05 + seed.w, 1.0);
-	float fade = smoothstep(0.0,0.1,wave)*smoothstep(1.0,0.9,wave);
-	pos.xz *= rotation(t);
-	pos.yz *= rotation(t);
-	pos.yx *= rotation(t);
-	pos.xyz *= 0.15 + seed.z * 0.05;
-	pos.xyz *= fade;
-	pos.xyz += seed.xyz * 4. * vec3(resolution.x/resolution.y,1,1);
-	vColor = vec4(seed.z*.5+.5);
-	gl_Position = viewProjection * pos;
-	gl_PointSize = 4.0;
-}
-`;
-
-const FRAGMENT_SHADER = `
-precision mediump float;
-
-uniform float time;
-uniform vec4 color;
-
-varying vec4 vColor;
-
-void main() {
-	gl_FragColor = vColor;
-}
-`;
 
 const CUBE_COUNT = 100;
 const CROSS_COUNT = 100;
@@ -187,11 +145,10 @@ function actualMount(
 ) {
 	container.appendChild(canvas);
 
-	const program = twgl.createProgramFromSources(gl, [
+	const programInfo = twgl.createProgramInfo(gl, [
 		VERTEX_SHADER,
 		FRAGMENT_SHADER,
 	]);
-	const programInfo = twgl.createProgramInfoFromProgram(gl, program);
 
 	const bufferInfo = twgl.createBufferInfoFromArrays(gl, {
 		indices: { numComponents: 2, data: indices },
@@ -202,12 +159,10 @@ function actualMount(
 	const cameraMatrix = m4.lookAt([0, 0, 10], [0, 0, 0], [0, 1, 0]);
 
 	const uniforms: {
-		color: [number, number, number, number];
 		resolution: [number, number];
 		time: number;
 		viewProjection: m4.Mat4;
 	} = {
-		color: [1, 1, 1, 1],
 		resolution: undefined as any,
 		time: 0,
 		viewProjection: undefined as any,
@@ -257,6 +212,8 @@ function actualMount(
 	let animationRequestId = requestAnimationFrame(render);
 
 	return {
+		element: canvas,
+
 		unmount: () => {
 			window.removeEventListener('resize', onWindowResize!, false);
 
@@ -267,18 +224,13 @@ function actualMount(
 	};
 }
 
-let cacheCanvas: HTMLCanvasElement | undefined;
-let cacheGl: WebGLRenderingContext | null;
-
 export function mount(container: HTMLElement) {
-	if (!cacheCanvas || !cacheGl) {
-		cacheCanvas = document.createElement('canvas');
+	const canvas = document.createElement('canvas');
 
-		cacheGl = cacheCanvas.getContext('webgl');
-		if (!cacheGl) {
-			throw new Error('Cannot get WebGL context');
-		}
+	const gl = canvas.getContext('webgl');
+	if (!gl) {
+		throw new Error('Cannot get WebGL context');
 	}
 
-	return actualMount(container, cacheCanvas, cacheGl);
+	return actualMount(container, canvas, gl);
 }
