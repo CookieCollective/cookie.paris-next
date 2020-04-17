@@ -1,6 +1,5 @@
 
 uniform sampler2D image;
-const vec2 imageResolution = vec2(717, 492);
 
 varying vec2 uv;
 
@@ -8,7 +7,6 @@ void main ()
 {
 	vec3 color = vec3(0);
 	float aspect = resolution.x / resolution.y;
-	float aspectImage = imageResolution.y / imageResolution.x;
 	vec2 pos = (uv * 2. - 1.) * vec2(aspect, 1) * 1.4;
 	float dist = length(pos) * .3 - time * .1;
 	float lod = 4.0;

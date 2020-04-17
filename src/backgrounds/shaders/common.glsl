@@ -1,11 +1,13 @@
 
 precision mediump float;
 
-uniform float time;
+uniform float time, tick;
 uniform vec2 resolution;
 
 const float PI = 3.1415;
 const float TAU = 6.283;
+
+#define repeat(p,r) (mod(p,r)-r/2.)
 
 mat2 rotation (float a) { float c=cos(a),s=sin(a); return mat2(c,-s,s,c); }
 float random (in vec2 st) { return fract(sin(dot(st.xy,vec2(12.9898,78.233)))*43758.5453123); }

@@ -1,6 +1,6 @@
 import COMMON from 'raw-loader!./shaders/common.glsl';
 import FEEDBACK from 'raw-loader!./shaders/feedback.frag';
-import RAINBOW_ARRAY from 'raw-loader!./shaders/rainbow-array.frag';
+import RGB_GLITCH from 'raw-loader!./shaders/rgb-glitch.frag';
 import RAINBOW_CIRCLE from 'raw-loader!./shaders/rainbow-circle.frag';
 import RENDER from 'raw-loader!./shaders/render.frag';
 import SCREEN from 'raw-loader!./shaders/screen.vert';
@@ -49,8 +49,8 @@ function actualMount(
 				fragment: FEEDBACK,
 				vertex: SCREEN,
 			},
-			rainbowArray: {
-				fragment: RAINBOW_ARRAY,
+			rgbGlitch: {
+				fragment: RGB_GLITCH,
 				vertex: SCREEN,
 			},
 			rainbowCircle: {
@@ -70,8 +70,8 @@ function actualMount(
 	);
 
 	const SEQUENCE_MATERIALS = [
+		materials.rgbGlitch,
 		materials.rainbowCircle,
-		materials.rainbowArray,
 		materials.feedback,
 	];
 	const SEQUENCE_DURATION_TIME = 3;
@@ -88,6 +88,7 @@ function actualMount(
 		frame: undefined as any,
 		resolution: [1, 1],
 		time: 0,
+		tick: 0,
 
 		// http://twgljs.org/docs/module-twgl.html#.TextureOptions
 		image: twgl.createTexture(gl, {
@@ -130,6 +131,7 @@ function actualMount(
 		gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 		draw(materials.render);
 
+		uniforms.tick++;
 		currentFrame = 1 - currentFrame;
 		// if (sequenceElapsedTime > SEQUENCE_DURATION_TIME) {
 		// 	sequenceElapsedTime = 0;
