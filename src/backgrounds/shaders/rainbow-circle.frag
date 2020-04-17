@@ -16,5 +16,5 @@ void main ()
 	pos -= vec2(0.5);
 	vec4 map = texture2D(image, fract(pos));
 	color = mix(color, rainbow.rgb, smoothstep(0.3,0.6, map.a));
-	gl_FragColor = vec4(color, 1);
+	gl_FragColor = vec4(color, map.a);
 }
