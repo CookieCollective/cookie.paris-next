@@ -1,7 +1,7 @@
 import COMMON from 'raw-loader!./shaders/common.glsl';
 import FEEDBACK from 'raw-loader!./shaders/feedback.frag';
 import RAINBOW_ARRAY from 'raw-loader!./shaders/rainbow-array.frag';
-import RAINBOW_LAZER from 'raw-loader!./shaders/rainbow-lazer.frag';
+import RAINBOW_CIRCLE from 'raw-loader!./shaders/rainbow-circle.frag';
 import RENDER from 'raw-loader!./shaders/render.frag';
 import SCREEN from 'raw-loader!./shaders/screen.vert';
 import SIMPLE from 'raw-loader!./shaders/simple.frag';
@@ -53,8 +53,8 @@ function actualMount(
 				fragment: RAINBOW_ARRAY,
 				vertex: SCREEN,
 			},
-			rainbowLazer: {
-				fragment: RAINBOW_LAZER,
+			rainbowCircle: {
+				fragment: RAINBOW_CIRCLE,
 				vertex: SCREEN,
 			},
 			render: {
@@ -70,8 +70,8 @@ function actualMount(
 	);
 
 	const SEQUENCE_MATERIALS = [
+		materials.rainbowCircle,
 		materials.rainbowArray,
-		materials.rainbowLazer,
 		materials.feedback,
 	];
 	const SEQUENCE_DURATION_TIME = 3;
@@ -92,7 +92,8 @@ function actualMount(
 		// http://twgljs.org/docs/module-twgl.html#.TextureOptions
 		image: twgl.createTexture(gl, {
 			flipY: 1,
-			src: '/cookie-collective-texture.png',
+			src: '/cookie-collective-sdf.png',
+			min: gl.LINEAR,
 		}),
 	};
 
@@ -130,13 +131,13 @@ function actualMount(
 		draw(materials.render);
 
 		currentFrame = 1 - currentFrame;
-		if (sequenceElapsedTime > SEQUENCE_DURATION_TIME) {
-			sequenceElapsedTime = 0;
-			currentSequenceIndex =
-				(currentSequenceIndex + 1) % SEQUENCE_MATERIALS.length;
-		} else {
-			sequenceElapsedTime += dt;
-		}
+		// if (sequenceElapsedTime > SEQUENCE_DURATION_TIME) {
+		// 	sequenceElapsedTime = 0;
+		// 	currentSequenceIndex =
+		// 		(currentSequenceIndex + 1) % SEQUENCE_MATERIALS.length;
+		// } else {
+		// 	sequenceElapsedTime += dt;
+		// }
 
 		requestAnimationFrame(render);
 	};
