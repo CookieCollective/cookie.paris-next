@@ -6,7 +6,7 @@ location: >
   93100 Montreuil
   France
 thumbnail: thumbnail.png
-title: Mini Cookie Party
+title: Mini Cookie Party 2020
 type: cookie
 ---
 

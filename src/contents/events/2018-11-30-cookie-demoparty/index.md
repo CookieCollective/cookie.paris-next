@@ -7,7 +7,7 @@ location: >
   75019 Paris
   France
 thumbnail: thumbnail.png
-title: Cookie Demoparty
+title: Cookie Demoparty 2018
 type: cookie
 ---
 

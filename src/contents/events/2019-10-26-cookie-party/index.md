@@ -6,7 +6,7 @@ location: >
   Saint-Denis
   France
 thumbnail: thumbnail.png
-title: Cookie Party
+title: Cookie Party 2019
 type: cookie
 ---
 
