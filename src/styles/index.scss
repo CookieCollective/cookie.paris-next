@@ -34,7 +34,16 @@ body {
 a {
 	color: $color;
 	text-decoration: none;
+		
+	&:hover {
+		color: $color-active;
+	}
+
+	&.active {
+		color: $color-active;
+	}
 }
+
 
 h1,
 h2,
@@ -73,7 +82,16 @@ button {
 	border: 0;
 	cursor: pointer;
 	color: $color;
-	font-size: 1.5em;
+	font-size: 1.55em;
+	padding: 5px 0;
+	
+	&:hover {
+		color: $color-active;
+	}
+
+	&.active {
+		color: $color-active;
+	}
 }
 
 .background {

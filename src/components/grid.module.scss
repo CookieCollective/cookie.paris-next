@@ -1,6 +1,7 @@
 .grid {
 	display: flex;
 	flex-flow: row wrap;
+	margin-bottom: 2em !important;
 
 	* {
 		flex: 1 1 100%;

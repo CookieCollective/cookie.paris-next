@@ -19,13 +19,14 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 		<Background kind="main" />
 
 		<header>
+			<Link to="/">
 			<div className={styles.title}>
-				<Link to="/">Cookie Collective</Link>
+				Cookie Collective
 			</div>
 			<div className={styles.subtitle}>
 				Digital artists involved in real-time creation
 			</div>
-
+			</Link>
 			<div className={styles.socialLinks}>
 				<a
 					href="mailto:contact@cookie.paris"
