@@ -22,7 +22,7 @@ void main () {
 	pos.xyz *= 0.15 + seed.z * 0.05;
 	pos.xyz *= fade;
 	pos.xyz += seed.xyz * 4. * vec3(resolution.x/resolution.y,1,1);
-	vColor = vec4(vec3(seed.z*.5+.5), 1.);
+	vColor = vec4(vec3(seed.z*.5+.5)*.5, 1.);
 	gl_Position = viewProjection * pos;
 	gl_PointSize = 4.0;
 }
