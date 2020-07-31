@@ -6,7 +6,7 @@ location: >
   22 quai Jehan Fouquet
   Laval
   France
-thumbnail: thumbnail.png
+thumbnail: thumbnail.jpg
 title: Live Coding Party
 subtitle: Laval Virtual (2019)
 type: cookie

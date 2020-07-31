@@ -1,12 +1,12 @@
 ---
-cover: cover.1.png
+cover: cover.png
 date: 2017-11-25
 location: >
   Nogozon
   6 rue Julien Lacroix
   75020 Paris
   France
-thumbnail: thumbnail.1.png
+thumbnail: thumbnail.png
 title: Shader Showdown
 subtitle: Nogozon (2017)
 type: cookie

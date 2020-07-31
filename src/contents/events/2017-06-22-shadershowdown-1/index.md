@@ -6,7 +6,7 @@ location: >
   20 rue de Nembours,
   75011 Paris
   France
-thumbnail: thumbnail.1.png
+thumbnail: thumbnail.jpg
 title: Shader Showdown
 subtitle: Kawaii Café (2017)
 type: cookie

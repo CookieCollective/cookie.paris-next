@@ -6,7 +6,7 @@ location: >
   1 rue Charles Garnier
   Saint-Ouent-sur-Seine
   France
-thumbnail: thumbnail.1.png
+thumbnail: thumbnail.jpg
 title: Cookie Showdown
 subtitle: Mains d'Œuvres (2018)
 type: cookie

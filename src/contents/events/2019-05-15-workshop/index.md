@@ -1,12 +1,12 @@
 ---
-cover: cover.1.png
+cover: cover.png
 date: 2019-05-15
 location: >
   FUZ
   11 rue de la Réunion
   75020 Paris
   France
-thumbnail: thumbnail.1.png
+thumbnail: thumbnail.png
 title: Atelier Shader
 subtitle: FUZ (2019)
 type: cookie

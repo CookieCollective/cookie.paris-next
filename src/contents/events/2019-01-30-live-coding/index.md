@@ -6,7 +6,7 @@ location: >
   11 rue de la Réunion
   75020 Paris
   France
-thumbnail: thumbnail.png
+thumbnail: thumbnail.jpg
 title: Live Coding Party
 subtitle: FUZ (2019)
 type: cookie

@@ -6,7 +6,7 @@ location: >
   35 rue Méhul
   Pantin
   France
-thumbnail: thumbnail.png
+thumbnail: thumbnail.jpg
 title: "Live Coding Party"
 subtitle: "Blue \\x80 (2018)"
 type: cookie

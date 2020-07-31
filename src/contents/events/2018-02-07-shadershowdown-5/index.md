@@ -6,7 +6,7 @@ location: >
   19 rue Garibaldi
   93100 Montreuil
   France
-thumbnail: thumbnail.png
+thumbnail: thumbnail.jpg
 title: Shader Showdown
 subtitle: Jardin d'Alice (2018)
 type: cookie
