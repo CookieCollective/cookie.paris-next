@@ -7,8 +7,8 @@ location: >
   Saint-Ouent-sur-Seine
   France
 thumbnail: thumbnail.1.png
-title: "Cookie Showdown #8"
-subtitle: Mains d'Œuvres
+title: Cookie Showdown
+subtitle: Mains d'Œuvres (2018)
 type: cookie
 ---
 

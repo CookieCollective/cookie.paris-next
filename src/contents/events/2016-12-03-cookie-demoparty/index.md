@@ -12,8 +12,8 @@ location: >
   93300 Aubervilliers
   France
 thumbnail: thumbnail.png
-title: Cookie Demoparty 2016
-subtitle: SAE Institute
+title: Cookie Demoparty
+subtitle: SAE Institute (2016)
 type: cookie
 ---
 

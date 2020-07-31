@@ -7,8 +7,8 @@ location: >
   75020 Paris
   France
 thumbnail: thumbnail.1.png
-title: "Atelier Programmation de Shader"
-subtitle: FUZ
+title: Atelier Shader
+subtitle: FUZ (2019)
 type: cookie
 ---
 

@@ -7,8 +7,8 @@ location: >
   75012 Paris
   France
 thumbnail: thumbnail.png
-title: "Shader Showdown"
-subtitle: GROW
+title: Shader Showdown
+subtitle: GROW (2018)
 type: cookie
 ---
 

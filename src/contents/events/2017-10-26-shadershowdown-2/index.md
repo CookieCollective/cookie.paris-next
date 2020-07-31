@@ -7,8 +7,8 @@ location: >
   75020 Paris
   France
 thumbnail: thumbnail.png
-title: "Shader Showdown #2"
-subtitle: Nogozon
+title: Shader Showdown
+subtitle: Nogozon (2017)
 type: cookie
 ---
 

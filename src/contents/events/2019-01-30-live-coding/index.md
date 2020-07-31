@@ -1,5 +1,5 @@
 ---
-cover: cover.png
+cover: cover.jpg
 date: 2019-01-30
 location: >
   FUZ
@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Live Coding Party
-subtitle: FUZ
+subtitle: FUZ (2019)
 type: cookie
 ---
 

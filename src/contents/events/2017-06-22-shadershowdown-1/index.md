@@ -7,8 +7,8 @@ location: >
   75011 Paris
   France
 thumbnail: thumbnail.1.png
-title: "Shader Showdown #1"
-subtitle: Kawaii Café
+title: Shader Showdown
+subtitle: Kawaii Café (2017)
 type: cookie
 ---
 

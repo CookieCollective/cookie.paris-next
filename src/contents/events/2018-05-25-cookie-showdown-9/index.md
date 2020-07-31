@@ -7,8 +7,8 @@ location: >
   75019 Paris
   France
 thumbnail: thumbnail.png
-title: "Cookie Showdown #9"
-subtitle: Folie Numérique
+title: Cookie Showdown
+subtitle: Folie Numérique (2018)
 type: cookie
 ---
 

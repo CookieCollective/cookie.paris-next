@@ -7,8 +7,8 @@ location: >
   Pantin
   France
 thumbnail: thumbnail.png
-title: "Live Coding Party at Blue \\x80"
-subtitle: "Bar Gallia Pantin"
+title: "Live Coding Party"
+subtitle: "Blue \\x80 (2018)"
 type: cookie
 ---
 

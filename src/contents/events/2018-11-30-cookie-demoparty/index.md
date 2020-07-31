@@ -7,8 +7,8 @@ location: >
   75019 Paris
   France
 thumbnail: thumbnail.png
-title: Cookie Demoparty 2018
-subtitle: Folie Numerique
+title: Cookie Demoparty
+subtitle: Folie Numérique (2018)
 type: cookie
 ---
 

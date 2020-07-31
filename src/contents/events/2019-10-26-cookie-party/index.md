@@ -6,8 +6,8 @@ location: >
   Saint-Denis
   France
 thumbnail: thumbnail.png
-title: Cookie Party 2019
-subtitle: Landy Sauvage
+title: Cookie Party
+subtitle: Landy Sauvage (2019)
 type: cookie
 ---
 

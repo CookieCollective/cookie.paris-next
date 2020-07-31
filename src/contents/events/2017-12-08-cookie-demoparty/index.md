@@ -11,8 +11,8 @@ location: >
   93100 Montreuil
   France
 thumbnail: thumbnail.png
-title: Cookie Demoparty 2017
-subtitle: Jardin d'Alice
+title: Cookie Demoparty
+subtitle: Jardin d'Alice (2017)
 type: cookie
 ---
 

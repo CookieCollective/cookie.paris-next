@@ -7,8 +7,8 @@ location: >
   93100 Montreuil
   France
 thumbnail: thumbnail.1.png
-title: "Shader Showdown #6"
-subtitle: Jardin d'Alice
+title: Shader Showdown
+subtitle: Jardin d'Alice (2018)
 type: cookie
 ---
 

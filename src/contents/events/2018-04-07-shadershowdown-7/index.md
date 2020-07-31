@@ -7,8 +7,8 @@ location: >
   Laval
   France
 thumbnail: thumbnail.png
-title: "Shader Showdown #7"
-subtitle: Laval Virtual
+title: Shader Showdown
+subtitle: Laval Virtual (2018)
 type: cookie
 ---
 

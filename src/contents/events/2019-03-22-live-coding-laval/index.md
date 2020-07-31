@@ -7,8 +7,8 @@ location: >
   Laval
   France
 thumbnail: thumbnail.png
-title: "Live Coding Party at Laval Virtual 2019"
-subtitle: Laval
+title: Live Coding Party
+subtitle: Laval Virtual (2019)
 type: cookie
 ---
 
