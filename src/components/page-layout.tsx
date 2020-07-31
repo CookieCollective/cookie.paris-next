@@ -10,6 +10,59 @@ interface Props {
 	slug: string;
 }
 
+const NavLinks: React.FC<Props> = ({ slug }) => (
+	<nav className={styles.pageLinks}>
+		<Link
+			to="/all/"
+			className={classnames({
+				[styles.active]: slug === '/all/',
+			})}
+		>
+			All
+		</Link>
+		<Link
+			to="/news/"
+			className={classnames({
+				[styles.active]: slug === '/news/',
+			})}
+		>
+			News
+		</Link>
+		<Link
+			to="/events/"
+			className={classnames({
+				[styles.active]: slug === '/events/',
+			})}
+		>
+			Events
+		</Link>
+		<Link
+			to="/photos/"
+			className={classnames({
+				[styles.active]: slug === '/photos/',
+			})}
+		>
+			Photos
+		</Link>
+		<Link
+			to="/projects/"
+			className={classnames({
+				[styles.active]: slug === '/projects/',
+			})}
+		>
+			Projects
+		</Link>
+		<Link
+			to="/about/"
+			className={classnames({
+				[styles.active]: slug === '/about/',
+			})}
+		>
+			About
+		</Link>
+	</nav>
+);
+
 export const PageLayout: React.FunctionComponent<Props> = ({
 	children,
 	slug,
@@ -17,15 +70,12 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 	<>
 		<SEO />
 		<Background kind="main" />
-
 		<header>
 			<Link to="/">
-			<div className={styles.title}>
-				Cookie Collective
-			</div>
-			<div className={styles.subtitle}>
-				Digital artists involved in real-time creation
-			</div>
+				<div className={styles.title}>Cookie Collective</div>
+				{/* <div className={styles.subtitle}> */}
+				{/* Digital artists involved in real-time creation */}
+				{/* </div> */}
 			</Link>
 			<div className={styles.socialLinks}>
 				<a
@@ -90,43 +140,11 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					Newsletter
 				</Link>
 			</div>
+			<NavLinks slug={slug} />
 		</header>
-
-		<nav className={styles.pageLinks}>
-			<Link
-				to="/posts/"
-				className={classnames({
-					[styles.active]: slug === '/posts/',
-				})}
-			>
-				Posts
-			</Link>
-			<Link
-				to="/media/"
-				className={classnames({
-					[styles.active]: slug === '/media/',
-				})}
-			>
-				Media
-			</Link>
-			<Link
-				to="/events/"
-				className={classnames({
-					[styles.active]: slug === '/events/',
-				})}
-			>
-				Events
-			</Link>
-			<Link
-				to="/about/"
-				className={classnames({
-					[styles.active]: slug === '/about/',
-				})}
-			>
-				About
-			</Link>
-		</nav>
-
 		<main className={styles.main}>{children}</main>
+		<footer>
+			<NavLinks slug={slug} />
+		</footer>
 	</>
 );

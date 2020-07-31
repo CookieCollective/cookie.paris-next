@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 export const Index: React.FunctionComponent = ({}) => {
 	return (
 		<FullScreenLayout backgroundKind="welcome">
-			<Link className={styles.center} to="/posts">
+			<Link className={styles.center} to="/all">
 				<img src="/cookie-collective.png" />
 			</Link>
 		</FullScreenLayout>

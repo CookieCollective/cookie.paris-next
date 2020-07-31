@@ -32,7 +32,10 @@ function actualMount(
 ) {
 	container.appendChild(canvas);
 
-	const frameAttachments = [ { format: gl.RGBA, mag: gl.NEAREST, min: gl.NEAREST }, { format: gl.STENCIL_INDEX8 } ];
+	const frameAttachments = [
+		{ format: gl.RGBA, mag: gl.NEAREST, min: gl.NEAREST },
+		{ format: gl.STENCIL_INDEX8 },
+	];
 	const frames = [
 		twgl.createFramebufferInfo(gl, frameAttachments),
 		twgl.createFramebufferInfo(gl, frameAttachments),
@@ -71,8 +74,8 @@ function actualMount(
 	);
 
 	const SEQUENCE_MATERIALS = [
-		materials.rgbGlitch,
-		materials.rainbowCircle,
+		// materials.rgbGlitch,
+		// materials.rainbowCircle,
 		materials.feedback,
 	];
 	const SEQUENCE_DURATION_TIME = 10;
@@ -84,12 +87,13 @@ function actualMount(
 		frame: WebGLObject;
 		image: WebGLTexture;
 		resolution: [number, number];
+		tick: number;
 		time: number;
 	} = {
 		frame: undefined as any,
 		resolution: [1, 1],
-		time: 0,
 		tick: 0,
+		time: 0,
 
 		// http://twgljs.org/docs/module-twgl.html#.TextureOptions
 		image: twgl.createTexture(gl, {

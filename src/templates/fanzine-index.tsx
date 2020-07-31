@@ -49,7 +49,8 @@ export const Fanzine: React.FunctionComponent<Props> = ({
 			date={node.frontmatter.date}
 			endDate={node.frontmatter.endDate}
 			slug={slug}
-			thumbnail={node.frontmatter.thumbnail}
+			cover={node.frontmatter.cover}
+			subtitle={node.frontmatter.subtitle}
 			title={node.frontmatter.title}
 		>
 			<div className={styles.links}>

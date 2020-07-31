@@ -8,6 +8,10 @@
 	max-width: 800px;
 	padding: 20px;
 
+	* {
+		text-align: left;
+	}
+
 	&:after {
 		clear: both;
 		content: '.';
@@ -19,8 +23,44 @@
 	header {
 		.image {
 			margin: 1em auto;
-			max-height: 400px;
+			max-height: 800px;
 		}
+
+		.links {
+			font-size: 1.5em;
+			text-align: center;
+			margin: 80px 0;
+			a {
+				margin: 0 20px;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	h1 {
+		letter-spacing: 0.05em;
+	}
+
+	h2 {
+		font-family: 'Oswald';
+		font-size: 2em;
+		font-weight: 400;
+		line-height: 1em;
+		// letter-spacing: 0.1em;
+	}
+
+	h3 {
+		font-family: 'Oswald';
+		font-size: 1.2em;
+		font-weight: 300;
+		margin: 10px 0 0 0;
+		// letter-spacing: 0.1em;
+	}
+
+	p {
+		font-weight: 200;
+		margin: 20px 0 20px 0;
+		font-size: 1.2em;
 	}
 
 	.content {

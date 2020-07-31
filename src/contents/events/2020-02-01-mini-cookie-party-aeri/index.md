@@ -7,6 +7,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Mini Cookie Party 2020
+subtitle: AERI Montreuil
 type: cookie
 ---
 

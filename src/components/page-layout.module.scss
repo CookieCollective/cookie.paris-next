@@ -23,17 +23,20 @@ a {
 
 .title {
 	font-size: 3.5em;
+	letter-spacing: 0.15em;
 	line-height: 0.8em;
 	margin-top: 0.2em;
 }
 
 .subtitle {
 	font-size: 1.34em;
-	line-height: 1.0em;
+	line-height: 1em;
 	// margin-bottom: 0.8em;
 }
 
 .social-links {
+	display: none;
+
 	font-size: 1.34em;
 
 	.icons {
@@ -43,9 +46,6 @@ a {
 			margin: 0 1px;
 		}
 	}
-
-	a {
-	}
 }
 
 .page-links {
@@ -54,8 +54,8 @@ a {
 	margin-bottom: 0.4em;
 
 	a {
-		padding: 10px 5px;
-		margin: 0 10px;
+		padding: 4px 5px;
+		margin: 0 4px;
 	}
 }
 

@@ -7,19 +7,20 @@ const SOURCE_PROPERTIES = {
 		post: true,
 		template: 'event',
 	},
-	fanzines: {
-		collection: 'media',
-		post: true,
-		template: 'fanzine',
-	},
 	galleries: {
-		collection: 'media',
+		collection: 'photos',
 		post: true,
 		template: 'gallery',
 	},
-	posts: {
+	news: {
+		collection: 'news',
 		post: true,
-		template: 'post',
+		template: 'news',
+	},
+	projects: {
+		collection: 'projects',
+		post: true,
+		template: 'project',
 	},
 	static: {
 		post: false,

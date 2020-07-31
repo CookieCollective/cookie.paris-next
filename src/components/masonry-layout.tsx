@@ -23,8 +23,10 @@ export const query = graphql`
 			slug
 		}
 		frontmatter {
+			author
 			date(formatString: "ll")
 			endDate(formatString: "ll")
+			subtitle
 			thumbnail {
 				childImageSharp {
 					fixed(width: 280) {
@@ -44,8 +46,10 @@ export interface GridNode {
 		slug: string;
 	};
 	frontmatter: {
+		author?: string;
 		date: string;
 		endDate?: string;
+		subtitle?: string;
 		thumbnail?: {
 			childImageSharp: {
 				fixed: any;
@@ -80,16 +84,23 @@ export const MasonryLayout: React.FunctionComponent<Props> = ({
 			>
 				{nodes.map((node) => {
 					const thumbnail = node.frontmatter.thumbnail ? (
-						<Img
-							className={styles.thumbnail}
-							fixed={node.frontmatter.thumbnail.childImageSharp.fixed}
-						/>
+						<Img fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
 					) : null;
 
 					return (
 						<Link className={styles.item} key={node.id} to={node.fields.slug}>
 							{thumbnail}
 							<div className={styles.title}>{node.frontmatter.title}</div>
+							{node.frontmatter.author && (
+								<div className={styles.author}>
+									by {node.frontmatter.author}
+								</div>
+							)}
+							{node.frontmatter.subtitle && (
+								<div className={styles.subtitle}>
+									{node.frontmatter.subtitle}
+								</div>
+							)}
 						</Link>
 					);
 				})}

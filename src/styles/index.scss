@@ -1,11 +1,21 @@
 @import './settings';
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&family=Oswald:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500&family=Roboto+Condensed:wght@300;400&display=swap');
 
 @font-face {
 	font-family: 'Bebas Neue Bold';
 	src: url('bebasneue_bold.woff2') format('woff2'),
 		url('bebasneue_bold.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bebas Neue Regular';
+	src: url('BebasNeue-Regular.woff2') format('woff2'),
+		url('BebasNeue-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -52,6 +62,7 @@ h4,
 h5,
 h6 {
 	@include heading;
+	margin: 0;
 }
 
 header {

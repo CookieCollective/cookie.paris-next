@@ -1,3 +1,5 @@
+declare module '@mdx-js/react';
+
 declare module 'gatsby-plugin-mailchimp' {
 	export default function(
 		email: string
@@ -24,4 +26,4 @@ declare module 'react-masonry-infinite' {
 	}> {}
 }
 
-declare module '@mdx-js/react';
+declare module 'raw-loader!*';

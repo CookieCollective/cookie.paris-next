@@ -5,53 +5,70 @@ import { Date } from './date';
 import { PageLayout } from './page-layout';
 
 interface Props {
-	date?: string;
-	endDate?: string;
-	slug: string;
-	style?: React.CSSProperties;
-	thumbnail?: {
+	author?: string;
+	cover?: {
 		childImageSharp: {
 			fluid: FluidObject;
 			original: {
 				height: number;
+				src: string;
 				width: number;
 			};
 		};
 	};
+	date?: string;
+	endDate?: string;
+	links?: {
+		name: string;
+		url: string;
+	}[];
+	slug: string;
+	style?: React.CSSProperties;
+	subtitle?: string;
 	title: string;
 }
 
 export const ArticleLayout: React.FunctionComponent<Props> = ({
+	author,
 	children,
+	cover,
 	date,
 	endDate,
+	links,
 	slug,
 	style,
-	thumbnail,
+	subtitle,
 	title,
 }) => {
-	let thumbnailElement: React.ReactNode | undefined;
-	if (thumbnail) {
-		const maxWidth = `calc(clamp(200px, 100vh - 400px, 400px) / ${thumbnail.childImageSharp.original.height} *
-			${thumbnail.childImageSharp.original.width})`;
-		thumbnailElement = (
-			<Img
-				className={styles.image}
-				fluid={thumbnail.childImageSharp.fluid}
-				style={{
-					maxWidth,
-				}}
-			/>
-		);
-	}
-
 	return (
 		<PageLayout slug={slug}>
 			<article className={styles.article} style={style}>
 				<header>
-					{thumbnailElement}
 					<h1>{title}</h1>
-					{date ? <Date date={date} endDate={endDate} /> : null}
+					{subtitle && <h2>{subtitle}</h2>}
+					{author && <h2>{author}</h2>}
+					{date && (
+						<h3>
+							<Date date={date} endDate={endDate} />
+						</h3>
+					)}
+					{cover && (
+						<a href={cover.childImageSharp.original.src} target="_blank">
+							<Img
+								className={styles.image}
+								fluid={cover.childImageSharp.fluid}
+							/>
+						</a>
+					)}
+					{links && (
+						<div className={styles.links}>
+							{links.map((link) => (
+								<a key={link.url} href={link.url}>
+									{link.name}
+								</a>
+							))}
+						</div>
+					)}
 				</header>
 				{children}
 			</article>

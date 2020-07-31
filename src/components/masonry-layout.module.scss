@@ -9,15 +9,27 @@
 		width: 100%;
 	}
 
-	.thumbnail {
-		margin: 10px 0;
-	}
-
 	.title {
 		@include heading;
+		font-size: 1.2em;
+		line-height: 1em;
+		margin-bottom: 0.2em;
+		font-family: 'Oswald', sans-serif;
+	}
 
-		font-size: 2em;
-		line-height: 0.8em;
+	.author {
+		@include heading;
+		font-size: 1em;
+		line-height: 1em;
 		margin-bottom: 0.5em;
+		font-family: 'Oswald', sans-serif;
+	}
+
+	.subtitle {
+		@include heading;
+		font-size: 1em;
+		line-height: 1em;
+		margin-bottom: 0.5em;
+		font-family: 'Oswald', sans-serif;
 	}
 }
