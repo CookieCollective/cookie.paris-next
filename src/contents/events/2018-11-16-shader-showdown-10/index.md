@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Shader Showdown
-subtitle: GROW (2018)
+subtitle: GROW
 type: cookie
 ---
 

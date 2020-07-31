@@ -13,7 +13,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Cookie Demoparty
-subtitle: SAE Institute (2016)
+subtitle: SAE Institute
 type: cookie
 ---
 

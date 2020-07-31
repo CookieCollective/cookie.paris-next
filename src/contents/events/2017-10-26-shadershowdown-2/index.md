@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Shader Showdown
-subtitle: Nogozon (2017)
+subtitle: Nogozon
 type: cookie
 ---
 

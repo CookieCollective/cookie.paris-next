@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.jpg
 title: Shader Showdown
-subtitle: Jardin d'Alice (2018)
+subtitle: Jardin d'Alice
 type: cookie
 ---
 

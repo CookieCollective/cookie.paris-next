@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.jpg
 title: Live Coding Party
-subtitle: FUZ (2019)
+subtitle: FUZ
 type: cookie
 ---
 

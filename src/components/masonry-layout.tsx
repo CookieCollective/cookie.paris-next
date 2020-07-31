@@ -35,6 +35,7 @@ export const query = graphql`
 				}
 			}
 			title
+			year: date(formatString: "YYYY")
 		}
 		id
 	}
@@ -56,6 +57,7 @@ export interface GridNode {
 			};
 		};
 		title: string;
+		year: string;
 	};
 	id: string;
 }
@@ -93,12 +95,12 @@ export const MasonryLayout: React.FunctionComponent<Props> = ({
 							<div className={styles.title}>{node.frontmatter.title}</div>
 							{node.frontmatter.author && (
 								<div className={styles.author}>
-									by {node.frontmatter.author}
+									by {node.frontmatter.author} ({node.frontmatter.year})
 								</div>
 							)}
 							{node.frontmatter.subtitle && (
 								<div className={styles.subtitle}>
-									{node.frontmatter.subtitle}
+									{node.frontmatter.subtitle} ({node.frontmatter.year})
 								</div>
 							)}
 						</Link>

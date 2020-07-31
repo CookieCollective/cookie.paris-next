@@ -7,7 +7,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Cookie Party
-subtitle: Landy Sauvage (2019)
+subtitle: Landy Sauvage
 type: cookie
 ---
 

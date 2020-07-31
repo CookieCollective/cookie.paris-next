@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.jpg
 title: Shader Showdown
-subtitle: Kawaii Café (2017)
+subtitle: Kawaii Café
 type: cookie
 ---
 

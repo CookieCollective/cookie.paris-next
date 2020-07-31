@@ -30,6 +30,7 @@ export const query = graphql`
 			subtitle
 			title
 			width
+			year: date(formatString: "YYYY")
 		}
 	}
 `;
@@ -57,6 +58,7 @@ export interface ContentNode {
 		subtitle?: string;
 		title: string;
 		width?: string;
+		year: string;
 	};
 }
 
@@ -74,17 +76,11 @@ export const DefaultContentLayout: React.FunctionComponent<Props> = ({
 	slug,
 }) => (
 	<ArticleLayout
-		author={node.frontmatter.author}
-		cover={node.frontmatter.cover}
-		date={node.frontmatter.date}
-		endDate={node.frontmatter.endDate}
-		links={node.frontmatter.links}
 		slug={slug}
 		style={{
 			maxWidth: node.frontmatter.width && WIDTHS[node.frontmatter.width],
 		}}
-		subtitle={node.frontmatter.subtitle}
-		title={node.frontmatter.title}
+		{...node.frontmatter}
 	>
 		<BodyRenderer>{node.body}</BodyRenderer>
 	</ArticleLayout>

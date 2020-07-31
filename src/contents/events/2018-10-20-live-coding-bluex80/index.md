@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.jpg
 title: "Live Coding Party"
-subtitle: "Blue \\x80 (2018)"
+subtitle: "Blue \\x80"
 type: cookie
 ---
 

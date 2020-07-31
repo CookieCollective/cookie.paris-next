@@ -12,7 +12,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Cookie Demoparty
-subtitle: Jardin d'Alice (2017)
+subtitle: Jardin d'Alice
 type: cookie
 ---
 

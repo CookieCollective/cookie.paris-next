@@ -24,8 +24,8 @@ module.exports = {
 		},
 		{
 			options: {
-				name: 'galleries',
-				path: path.join(contentsPath, 'galleries'),
+				name: 'photos',
+				path: path.join(contentsPath, 'photos'),
 			},
 			resolve: 'gatsby-source-filesystem',
 		},

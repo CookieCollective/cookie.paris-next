@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.jpg
 title: Live Coding Party
-subtitle: Laval Virtual (2019)
+subtitle: Laval Virtual
 type: cookie
 ---
 

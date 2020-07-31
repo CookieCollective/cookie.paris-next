@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.jpg
 title: Cookie Showdown
-subtitle: Mains d'Œuvres (2018)
+subtitle: Mains d'Œuvres
 type: cookie
 ---
 

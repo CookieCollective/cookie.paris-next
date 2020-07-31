@@ -26,6 +26,7 @@ interface Props {
 	style?: React.CSSProperties;
 	subtitle?: string;
 	title: string;
+	year: string;
 }
 
 export const ArticleLayout: React.FunctionComponent<Props> = ({
@@ -39,6 +40,7 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 	style,
 	subtitle,
 	title,
+	year,
 }) => {
 	return (
 		<PageLayout slug={slug}>

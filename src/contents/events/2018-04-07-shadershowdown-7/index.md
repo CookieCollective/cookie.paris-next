@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Shader Showdown
-subtitle: Laval Virtual (2018)
+subtitle: Laval Virtual
 type: cookie
 ---
 

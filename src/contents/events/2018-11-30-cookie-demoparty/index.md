@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Cookie Demoparty
-subtitle: Folie Numérique (2018)
+subtitle: Folie Numérique
 type: cookie
 ---
 

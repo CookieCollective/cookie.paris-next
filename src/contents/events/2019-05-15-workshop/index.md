@@ -8,7 +8,7 @@ location: >
   France
 thumbnail: thumbnail.png
 title: Atelier Shader
-subtitle: FUZ (2019)
+subtitle: FUZ
 type: cookie
 ---
 

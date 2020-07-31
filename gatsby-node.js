@@ -7,15 +7,15 @@ const SOURCE_PROPERTIES = {
 		post: true,
 		template: 'event',
 	},
-	galleries: {
-		collection: 'photos',
-		post: true,
-		template: 'gallery',
-	},
 	news: {
 		collection: 'news',
 		post: true,
 		template: 'news',
+	},
+	photos: {
+		collection: 'photos',
+		post: true,
+		template: 'gallery',
 	},
 	projects: {
 		collection: 'projects',
