@@ -6,14 +6,15 @@ links:
     url: https://2016.cookie.paris/
   - name: Results on pouet.net
     url: https://www.pouet.net/party_results.php?which=1779&when=2016
-location: >
-  SAE Institute
-  Rue du Miel Batiment 229
-  93300 Aubervilliers
-  France
+location:
+  address: |-
+    Rue du Miel Batiment 229
+    93300 Aubervilliers
+    France
+  name: SAE Institute
+  url: https://www.sae.edu/fra/
 thumbnail: thumbnail.png
 title: Cookie Demoparty
-subtitle: SAE Institute
 type: cookie
 ---
 

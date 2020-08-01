@@ -47,12 +47,10 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 			<article className={styles.article} style={style}>
 				<header>
 					<h1>{title}</h1>
-					{subtitle && <h2>{subtitle}</h2>}
-					{author && <h2>{author}</h2>}
+					{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+					{author && <div className={styles.author}>By {author}</div>}
 					{date && (
-						<h3>
-							<Date date={date} endDate={endDate} />
-						</h3>
+						<Date className={styles.date} date={date} endDate={endDate} />
 					)}
 					{cover && (
 						<a href={cover.childImageSharp.original.src} target="_blank">

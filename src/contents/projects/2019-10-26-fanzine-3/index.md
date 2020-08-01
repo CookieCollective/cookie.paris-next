@@ -1,4 +1,5 @@
 ---
+cover: thumbnail.png
 date: 2019-10-26
 file: Cookie-Collective-Fanzine-3-booklet.pdf
 pages:
@@ -35,8 +36,6 @@ thumbnail: thumbnail.png
 title: "Fanzine #3"
 subtitle: Anaglyph Edition
 ---
-
-![Cover of Cookie Collective fanzine #3](thumbnail.png)
 
 Anaglyph is a stereoscopic effect. It creates the illusion of perceiving the three will-known dimensions.
 

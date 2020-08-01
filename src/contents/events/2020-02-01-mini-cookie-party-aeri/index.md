@@ -1,13 +1,14 @@
 ---
 date: 2020-02-01
-location: >
-  AERI
-  57 rue Etienne Marcel
-  93100 Montreuil
-  France
+location:
+  address: |-
+    57 rue Etienne Marcel
+    93100 Montreuil
+    France
+  name: AERI Montreuil
+  url: https://www.facebook.com/pages/AERI/203050530198649
 thumbnail: thumbnail.png
 title: Mini Cookie Party
-subtitle: AERI Montreuil
 type: cookie
 ---
 
@@ -43,12 +44,10 @@ Notch est un outil de création de motion graphics conçu pour le live et dével
 
 ### Vandale integral + Léon Denise
 
-#### Vandale integral :
-
+Vandale integral :  
 Live-coding audio avec Tidal Cycles.
 
-#### Léon Denise :
-
+Léon Denise :  
 Live coding visuel // shaders.  
 http://shaderland.com/
 

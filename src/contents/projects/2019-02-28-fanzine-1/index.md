@@ -1,4 +1,5 @@
 ---
+cover: thumbnail.png
 date: 2019-02-28
 file: Cookie-Collective-Fanzine-1-booklet.pdf
 pages:
@@ -33,7 +34,6 @@ pages:
   - image: 15.jpg
     link: https://www.shadertoy.com/view/Md2yDd
 thumbnail: thumbnail.png
-cover: thumbnail.png
 title: "Fanzine #1"
 subtitle: Shader Collection
 ---

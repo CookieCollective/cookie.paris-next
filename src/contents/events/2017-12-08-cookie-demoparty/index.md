@@ -5,14 +5,15 @@ links:
     url: https://2017.cookie.paris/
   - name: Results on pouet.net
     url: https://www.pouet.net/party_results.php?which=1779&when=2017
-location: >
-  Le jardin d'Alice
-  19 rue Garibaldi
-  93100 Montreuil
-  France
+location:
+  address: |-
+    19 rue Garibaldi
+    93100 Montreuil
+    France
+  name: Le Jardin d'Alice
+  url: https://www.facebook.com/CollectifLeJardindAlice/
 thumbnail: thumbnail.png
 title: Cookie Demoparty
-subtitle: Jardin d'Alice
 type: cookie
 ---
 

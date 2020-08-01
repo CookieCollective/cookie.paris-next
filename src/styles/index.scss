@@ -44,7 +44,7 @@ body {
 a {
 	color: $color;
 	text-decoration: none;
-		
+
 	&:hover {
 		color: $color-active;
 	}
@@ -54,24 +54,8 @@ a {
 	}
 }
 
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@include heading;
-	margin: 0;
-}
-
 header {
 	text-align: center;
-}
-
-h1 {
-	font-size: 3em;
-	margin: 0;
 }
 
 blockquote {
@@ -95,7 +79,7 @@ button {
 	color: $color;
 	font-size: 1.55em;
 	padding: 5px 0;
-	
+
 	&:hover {
 		color: $color-active;
 	}

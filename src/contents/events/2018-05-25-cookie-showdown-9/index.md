@@ -1,14 +1,15 @@
 ---
 cover: cover.png
 date: 2018-06-19
-location: >
-  La Folie Numérique
-  211 avenue Jean Jaures,
-  75019 Paris
-  France
+location:
+  address: |-
+    211 avenue Jean Jaures
+    75019 Paris
+    France
+  name: La Folie Numérique
+  url: http://folie-numerique.fr/
 thumbnail: thumbnail.png
 title: Cookie Showdown
-subtitle: Folie Numérique
 type: cookie
 ---
 

@@ -1,14 +1,15 @@
 ---
 cover: cover.jpg
 date: 2018-02-07
-location: >
-  Le jardin d'Alice
-  19 rue Garibaldi
-  93100 Montreuil
-  France
+location:
+  address: |-
+    19 rue Garibaldi
+    93100 Montreuil
+    France
+  name: Le Jardin d'Alice
+  url: https://www.facebook.com/CollectifLeJardindAlice/
 thumbnail: thumbnail.jpg
 title: Shader Showdown
-subtitle: Jardin d'Alice
 type: cookie
 ---
 

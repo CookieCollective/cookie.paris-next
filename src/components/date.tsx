@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface DateProps {
 	className?: string;
@@ -13,7 +14,8 @@ export const Date: React.FunctionComponent<DateProps> = ({
 }) =>
 	endDate ? (
 		<div className={className}>
-			{date} <span className="caret right" />
+			{date}
+			<FontAwesomeIcon icon={['fab', 'caret-right']} />
 			{endDate}
 		</div>
 	) : (

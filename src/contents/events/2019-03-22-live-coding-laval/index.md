@@ -1,14 +1,18 @@
 ---
 cover: cover.jpg
 date: 2019-03-22
-location: >
-  Emphytéose
-  22 quai Jehan Fouquet
-  Laval
-  France
+duringEvent:
+  name: Laval Virtual
+  url: https://www.laval-virtual.com/
+location:
+  address: |-
+    22 quai Jehan Fouquet
+    Laval
+    France
+  name: Emphytéose
+  url: https://emphytéose.fr/
 thumbnail: thumbnail.jpg
 title: Live Coding Party
-subtitle: Laval Virtual
 type: cookie
 ---
 

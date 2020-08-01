@@ -1,14 +1,15 @@
 ---
 cover: cover.jpg
 date: 2017-06-22
-location: >
-  Kawaii Café
-  20 rue de Nembours,
-  75011 Paris
-  France
+location:
+  address: |-
+    20 rue de Nembours,
+    75011 Paris
+    France
+  name: Kawaii Café
+  url: http://www.kawaiicafe.fr/
 thumbnail: thumbnail.jpg
 title: Shader Showdown
-subtitle: Kawaii Café
 type: cookie
 ---
 

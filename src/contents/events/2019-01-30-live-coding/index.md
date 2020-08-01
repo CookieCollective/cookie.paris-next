@@ -1,14 +1,15 @@
 ---
 cover: cover.jpg
 date: 2019-01-30
-location: >
-  FUZ
-  11 rue de la Réunion
-  75020 Paris
-  France
+location:
+  address: |-
+    11 rue de la Réunion
+    75020 Paris
+    France
+  name: FUZ
+  url: https://fuz.re/
 thumbnail: thumbnail.jpg
 title: Live Coding Party
-subtitle: FUZ
 type: cookie
 ---
 

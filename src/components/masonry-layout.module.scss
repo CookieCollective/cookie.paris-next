@@ -16,14 +16,6 @@
 		margin-bottom: 0.2em;
 	}
 
-	.author {
-		@include heading;
-		font-size: 1em;
-		line-height: 1em;
-		margin-bottom: 0.5em;
-		font-family: 'Oswald', sans-serif;
-	}
-
 	.subtitle {
 		@include heading;
 		font-size: 1em;

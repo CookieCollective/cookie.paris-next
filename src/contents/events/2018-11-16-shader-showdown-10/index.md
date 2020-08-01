@@ -1,14 +1,18 @@
 ---
 cover: cover.jpg
 date: 2018-11-13
-location: >
-  Ground Control
-  81 rue du Charolais
-  75012 Paris
-  France
-thumbnail: thumbnail.png
+duringEvent:
+  name: GROW
+  url: https://www.grow.paris/
+location:
+  address: |-
+    81 rue du Charolais
+    75012 Paris
+    France
+  name: Ground Control
+  url: https://www.groundcontrolparis.com/
+thumbnail: thumbnail.jpg
 title: Shader Showdown
-subtitle: GROW
 type: cookie
 ---
 

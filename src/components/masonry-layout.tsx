@@ -18,14 +18,18 @@ for (let i = 1; i < 6; ++i) {
 }
 export const query = graphql`
 	fragment GridNode on Mdx {
-		excerpt
 		fields {
+			collection
 			slug
 		}
 		frontmatter {
 			author
-			date(formatString: "ll")
-			endDate(formatString: "ll")
+			duringEvent {
+				name
+			}
+			location {
+				name
+			}
 			subtitle
 			thumbnail {
 				childImageSharp {
@@ -42,14 +46,18 @@ export const query = graphql`
 `;
 
 export interface GridNode {
-	excerpt: string;
 	fields: {
+		collection: string;
 		slug: string;
 	};
 	frontmatter: {
 		author?: string;
-		date: string;
-		endDate?: string;
+		duringEvent?: {
+			name: string;
+		};
+		location?: {
+			name: string;
+		};
 		subtitle?: string;
 		thumbnail?: {
 			childImageSharp: {
@@ -63,6 +71,7 @@ export interface GridNode {
 }
 
 interface Props {
+	collection: string;
 	nodes: GridNode[];
 	slug: string;
 }
@@ -85,24 +94,35 @@ export const MasonryLayout: React.FunctionComponent<Props> = ({
 				sizes={SIZES}
 			>
 				{nodes.map((node) => {
-					const thumbnail = node.frontmatter.thumbnail ? (
-						<Img fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
-					) : null;
+					let subtitle = node.frontmatter.subtitle;
+
+					if (!subtitle) {
+						const subtitles: string[] = [];
+
+						if (node.frontmatter.author) {
+							subtitles.push(`by ${node.frontmatter.author}`);
+						}
+
+						if (node.frontmatter.duringEvent) {
+							subtitles.push(`during ${node.frontmatter.duringEvent.name}`);
+						}
+
+						if (node.frontmatter.location) {
+							subtitles.push(`at ${node.frontmatter.location.name}`);
+						}
+
+						subtitle = subtitles.join(' ');
+					}
+
+					subtitle += ` (${node.frontmatter.year})`;
 
 					return (
 						<Link className={styles.item} key={node.id} to={node.fields.slug}>
-							{thumbnail}
+							{node.frontmatter.thumbnail && (
+								<Img fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
+							)}
 							<div className={styles.title}>{node.frontmatter.title}</div>
-							{node.frontmatter.author && (
-								<div className={styles.author}>
-									by {node.frontmatter.author} ({node.frontmatter.year})
-								</div>
-							)}
-							{node.frontmatter.subtitle && (
-								<div className={styles.subtitle}>
-									{node.frontmatter.subtitle} ({node.frontmatter.year})
-								</div>
-							)}
+							{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
 						</Link>
 					);
 				})}

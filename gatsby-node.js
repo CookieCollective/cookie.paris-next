@@ -242,6 +242,7 @@ async function createFanzineOnlinePages({
 	createPage({
 		component: path.join(templatesPath, `${node.fields.template}-online.tsx`),
 		context: {
+			collection: node.fields.collection,
 			pages,
 			slug: node.fields.slug,
 		},

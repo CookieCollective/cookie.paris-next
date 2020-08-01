@@ -1,14 +1,21 @@
 ---
 cover: cover.jpg
 date: 2018-10-20
-location: >
-  Bar Gallia Pantin
-  35 rue Méhul
-  Pantin
-  France
+duringEvent:
+  name: "Blue \\x80"
+  organizers:
+    - name: Glitch Artists Collective
+      url: https://www.facebook.com/groups/Glitchcollective/
+  url: https://www.laval-virtual.com/
+location:
+  address: |-
+    35 rue Méhul
+    93500 Pantin
+    France
+  name: Bar Gallia Pantin
+  url: https://www.galliaparis.com/bar/gallia-pantin
 thumbnail: thumbnail.jpg
-title: "Live Coding Party"
-subtitle: "Blue \\x80"
+title: Live Coding Party
 type: cookie
 ---
 

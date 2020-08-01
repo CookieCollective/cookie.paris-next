@@ -1,14 +1,15 @@
 ---
 cover: cover.jpg
 date: 2018-05-25
-location: >
-  Mains d'Œuvres
-  1 rue Charles Garnier
-  Saint-Ouent-sur-Seine
-  France
+location:
+  address: |-
+    1 rue Charles Garnier
+    93400 Saint-Ouen-sur-Seine
+    France
+  name: Mains d'Œuvres
+  url: https://www.mainsdoeuvres.org/
 thumbnail: thumbnail.jpg
 title: Cookie Showdown
-subtitle: Mains d'Œuvres
 type: cookie
 ---
 

@@ -1,14 +1,15 @@
 ---
 cover: cover.png
 date: 2017-11-25
-location: >
-  Nogozon
-  6 rue Julien Lacroix
-  75020 Paris
-  France
+location:
+  address: |-
+    6 rue Julien Lacroix
+    75020 Paris
+    France
+  name: Nogozon
+  url: https://www.facebook.com/nogozon
 thumbnail: thumbnail.png
 title: Shader Showdown
-subtitle: Nogozon
 type: cookie
 ---
 

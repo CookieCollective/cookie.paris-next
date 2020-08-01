@@ -1,14 +1,18 @@
 ---
 cover: cover.png
 date: 2018-04-07
-location: >
-  O'Regans
-  48 rue Pont de Mayenne
-  Laval
-  France
+duringEvent:
+  name: Laval Virtual
+  url: https://www.laval-virtual.com/
+location:
+  address: |-
+    48 rue Pont de Mayenne
+    53000 Laval
+    France
+  name: O'Regans
+  url: https://www.facebook.com/ORegans-135863436463053/
 thumbnail: thumbnail.png
 title: Shader Showdown
-subtitle: Laval Virtual
 type: cookie
 ---
 
