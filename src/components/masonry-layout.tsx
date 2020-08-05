@@ -71,7 +71,6 @@ export interface GridNode {
 }
 
 interface Props {
-	collection: string;
 	nodes: GridNode[];
 	slug: string;
 }

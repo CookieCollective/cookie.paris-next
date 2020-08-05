@@ -17,8 +17,15 @@ module.exports = {
 		},
 		{
 			options: {
-				name: 'projects',
-				path: path.join(contentsPath, 'projects'),
+				name: 'fanzines',
+				path: path.join(contentsPath, 'fanzines'),
+			},
+			resolve: 'gatsby-source-filesystem',
+		},
+		{
+			options: {
+				name: 'news',
+				path: path.join(contentsPath, 'news'),
 			},
 			resolve: 'gatsby-source-filesystem',
 		},
@@ -31,8 +38,8 @@ module.exports = {
 		},
 		{
 			options: {
-				name: 'news',
-				path: path.join(contentsPath, 'news'),
+				name: 'projects',
+				path: path.join(contentsPath, 'projects'),
 			},
 			resolve: 'gatsby-source-filesystem',
 		},
