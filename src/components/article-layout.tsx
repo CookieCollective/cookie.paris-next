@@ -53,19 +53,6 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 			<article className={styles.article} style={style}>
 				<header>
 					<h1>{title}</h1>
-					{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-					{author && <div className={styles.author}>By {author}</div>}
-					{location && (
-						<div className={styles.location}>
-							<a key={location.url} href={location.url}>
-								{location.name}
-							</a>
-							<div className={styles.address}>{location.address}</div>
-						</div>
-					)}
-					{date && (
-						<Date className={styles.date} date={date} endDate={endDate} />
-					)}
 					{cover && (
 						<a href={cover.childImageSharp.original.src} target="_blank">
 							<Img
@@ -73,6 +60,20 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 								fluid={cover.childImageSharp.fluid}
 							/>
 						</a>
+					)}
+					{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+					{author && <div className={styles.author}>By {author}</div>}
+					{date && (
+						<Date className={styles.date} date={date} endDate={endDate} />
+					)}
+					{location && (
+						<div className={styles.location}>
+							at{' '}
+							<a key={location.url} href={location.url}>
+								{location.name}
+							</a>
+							<div className={styles.address}>{location.address}</div>
+						</div>
 					)}
 					{links && (
 						<div className={styles.links}>
