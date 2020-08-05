@@ -3,7 +3,8 @@
 .title,
 .subtitle,
 .social-links,
-.page-links {
+.page-links,
+.footnotes {
 	@include heading;
 
 	text-align: center;
@@ -59,4 +60,12 @@ a {
 
 .main {
 	margin-bottom: 60px;
+}
+
+.footer {
+	margin-bottom: 20px;
+}
+
+.footnotes {
+	font-size: 1em;
 }
