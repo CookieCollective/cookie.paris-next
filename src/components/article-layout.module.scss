@@ -51,11 +51,21 @@
 	}
 
 	.author,
+	.location,
 	.date {
 		font-size: 1.2em;
-		font-style: italic;
+		// font-style: italic;
 		font-weight: 400;
 		margin: 0;
+	}
+	.address {
+		font-size: 1em;
+		font-weight: 400;
+		margin: 0;
+	}
+
+	.location a {
+		text-decoration: underline;
 	}
 
 	h2 {

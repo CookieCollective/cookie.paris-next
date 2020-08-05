@@ -23,6 +23,11 @@ export const query = graphql`
 			}
 			date(formatString: "LL")
 			endDate(formatString: "LL")
+			location {
+				address
+				name
+				url
+			}
 			links {
 				name
 				url
@@ -51,10 +56,15 @@ export interface ContentNode {
 		};
 		date: string;
 		endDate?: string;
-		links?: {
+		location?: {
+			address: string;
 			name: string;
 			url: string;
 		}[];
+		links?: {
+			name: string;
+			url: string;
+		};
 		subtitle?: string;
 		title: string;
 		width?: string;

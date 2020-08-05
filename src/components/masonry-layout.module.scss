@@ -11,15 +11,14 @@
 
 	.title {
 		@include heading;
-		font-size: 1.2em;
+		font-size: 1.1em;
 		line-height: 1em;
-		margin-bottom: 0.2em;
 	}
 
 	.subtitle {
 		@include heading;
-		font-size: 1em;
-		line-height: 1em;
+		font-size: 0.9em;
+		line-height: 1.2em;
 		margin-bottom: 0.5em;
 		font-family: 'Oswald', sans-serif;
 		font-weight: 300;

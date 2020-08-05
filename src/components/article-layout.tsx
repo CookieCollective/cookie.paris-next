@@ -22,6 +22,11 @@ interface Props {
 		name: string;
 		url: string;
 	}[];
+	location?: {
+		address: string;
+		name: string;
+		url: string;
+	};
 	slug: string;
 	style?: React.CSSProperties;
 	subtitle?: string;
@@ -35,6 +40,7 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 	cover,
 	date,
 	endDate,
+	location,
 	links,
 	slug,
 	style,
@@ -49,6 +55,14 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 					<h1>{title}</h1>
 					{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
 					{author && <div className={styles.author}>By {author}</div>}
+					{location && (
+						<div className={styles.location}>
+							<a key={location.url} href={location.url}>
+								{location.name}
+							</a>
+							<div className={styles.address}>{location.address}</div>
+						</div>
+					)}
 					{date && (
 						<Date className={styles.date} date={date} endDate={endDate} />
 					)}
