@@ -5,6 +5,12 @@
 
 	* {
 		flex: 1 1 100%;
+
+		* {
+			// Ugly hack to enlarge pictures that are too small.
+			max-width: initial !important;
+			width: 100%;
+		}
 	}
 
 	@media screen and (min-width: 961px) {
