@@ -1,6 +1,9 @@
 ---
+cover: cover.jpg
 date: 2017-12-08
 links:
+  - name: Photos by Jonathan Giroux
+    url: /posts/2017-12-08-cookie-party-jonathan/
   - name: Website 2017
     url: https://2017.cookie.paris/
   - name: Results on pouet.net
@@ -17,14 +20,14 @@ title: Cookie Demoparty
 type: cookie
 ---
 
-<iframe width="800" height="512" src="https://www.youtube.com/embed/Lx-vsXWUrGA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Welcome!
 
 Cookie is a digital art festival known as demoparty.
 This year, we welcome you on December 8th & 9th (staying till the 10th is possible) at Le Jardin d'Alice, near Paris, France.
 Come over the weekend and watch stunning animations on modern or retro computers, attend to workshops and live performances, or simply meet passionate people around a beer.
 Don't be afraid if you are a newcomer, people will kindly help you, so come and enjoy the party!
+
+<iframe width="760" height="427" src="https://www.youtube.com/embed/Lx-vsXWUrGA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Watch the invitro
 

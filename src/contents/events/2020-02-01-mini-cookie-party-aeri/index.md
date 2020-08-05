@@ -5,8 +5,7 @@ location:
     57 rue Etienne Marcel
     93100 Montreuil
     France
-  name: AERI Montreuil
-  url: https://www.facebook.com/pages/AERI/203050530198649
+  name: AERI
 thumbnail: thumbnail.png
 title: Mini Cookie Party
 type: cookie

@@ -89,9 +89,13 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 					{location && (
 						<div className={styles.location}>
 							<div className={styles.preposition}>at </div>
-							<a key={location.url} href={location.url}>
-								{location.name}
-							</a>
+							{location.url ? (
+								<a key={location.url} href={location.url}>
+									{location.name}
+								</a>
+							) : (
+								<div>{location.name}</div>
+							)}
 							{/* <div className={styles.address}>{location.address}</div> */}
 						</div>
 					)}

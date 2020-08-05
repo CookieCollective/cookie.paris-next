@@ -21,13 +21,15 @@
 	}
 
 	header {
+		margin-bottom: 1em;
+		font-weight: 300;
 		.image {
 			margin: 1em auto;
 			max-height: 800px;
 		}
 
 		.links {
-			font-size: 1.2em;
+			font-size: 1em;
 			text-align: center;
 			margin: 10px 0;
 			a {
@@ -46,16 +48,17 @@
 
 	.subtitle {
 		font-size: 1.4em;
-		font-weight: 400;
 		margin: 0;
 	}
 
 	.author,
 	.location,
 	.duringEvent {
-		font-weight: 400;
 		a {
 			text-decoration: underline;
+		}
+		div {
+			display: inline;
 		}
 	}
 	.date {
