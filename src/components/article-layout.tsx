@@ -17,6 +17,10 @@ interface Props {
 		};
 	};
 	date?: string;
+	duringEvent?: {
+		name: string;
+		url: string;
+	};
 	endDate?: string;
 	links?: {
 		name: string;
@@ -39,6 +43,7 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 	children,
 	cover,
 	date,
+	duringEvent,
 	endDate,
 	location,
 	links,
@@ -62,17 +67,32 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 						</a>
 					)}
 					{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-					{author && <div className={styles.author}>By {author}</div>}
 					{date && (
-						<Date className={styles.date} date={date} endDate={endDate} />
+						<div className={styles.preposition}>
+							on <Date className={styles.date} date={date} endDate={endDate} />
+						</div>
+					)}
+					{author && (
+						<div className={styles.author}>
+							<div className={styles.preposition}>by </div>
+							{author}
+						</div>
+					)}
+					{duringEvent && (
+						<div className={styles.duringEvent}>
+							<div className={styles.preposition}>during </div>
+							<a key={duringEvent.url} href={duringEvent.url}>
+								{duringEvent.name}
+							</a>
+						</div>
 					)}
 					{location && (
 						<div className={styles.location}>
-							at{' '}
+							<div className={styles.preposition}>at </div>
 							<a key={location.url} href={location.url}>
 								{location.name}
 							</a>
-							<div className={styles.address}>{location.address}</div>
+							{/* <div className={styles.address}>{location.address}</div> */}
 						</div>
 					)}
 					{links && (

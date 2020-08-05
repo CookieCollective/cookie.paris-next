@@ -6,7 +6,7 @@ duringEvent:
   organizers:
     - name: Glitch Artists Collective
       url: https://www.facebook.com/groups/Glitchcollective/
-  url: https://www.laval-virtual.com/
+  url: https://glitchartistscollective.tumblr.com/
 location:
   address: |-
     35 rue Méhul

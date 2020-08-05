@@ -52,10 +52,15 @@
 
 	.author,
 	.location,
-	.date {
-		font-size: 1.2em;
-		// font-style: italic;
+	.duringEvent {
 		font-weight: 400;
+		a {
+			text-decoration: underline;
+		}
+	}
+	.date {
+		font-weight: 300;
+		display: inline;
 	}
 	.address {
 		margin-top: 0.4em;
@@ -64,9 +69,10 @@
 		line-height: 1.2em;
 		white-space: pre-wrap;
 	}
-
-	.location a {
-		text-decoration: underline;
+	.preposition {
+		display: inline;
+		font-weight: 300;
+		font-size: 1em;
 	}
 
 	h2 {

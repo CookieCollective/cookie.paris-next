@@ -22,6 +22,10 @@ export const query = graphql`
 				}
 			}
 			date(formatString: "LL")
+			duringEvent {
+				name
+				url
+			}
 			endDate(formatString: "LL")
 			location {
 				address
@@ -55,6 +59,10 @@ export interface ContentNode {
 			};
 		};
 		date: string;
+		duringEvent?: {
+			name: string;
+			url: string;
+		};
 		endDate?: string;
 		location?: {
 			address: string;
