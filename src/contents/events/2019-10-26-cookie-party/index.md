@@ -5,7 +5,7 @@ location:
     166 rue du Landy
     Saint-Denis
     France
-  name: Au Landy Sauvage
+  name: Landy Sauvage
   url: http://lestendhal.net/lieux/le-clos-sauvage/
 thumbnail: thumbnail.png
 title: Cookie Party

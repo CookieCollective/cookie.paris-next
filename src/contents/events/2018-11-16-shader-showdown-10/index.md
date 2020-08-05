@@ -4,6 +4,9 @@ date: 2018-11-13
 duringEvent:
   name: GROW
   url: https://www.grow.paris/
+links:
+  - name: Photos by Edouard Ducos
+    url: /posts/2018-11-13-shadershowdown-edouard
 location:
   address: |-
     81 rue du Charolais
