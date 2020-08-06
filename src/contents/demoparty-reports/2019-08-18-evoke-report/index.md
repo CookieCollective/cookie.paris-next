@@ -29,7 +29,7 @@ releases:
           - fab
           - github
     media:
-      - youTube: Lx-vsXWUrGA
+      - youTube: 10ZqYLzx4wo
   - title: Turing Test
     authors:
       - person: captcha

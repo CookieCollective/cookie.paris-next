@@ -44,5 +44,7 @@ The Cookie Collective would like to shout out a huge big THANKS to:
 
 ## 🍾 You all made the success of the festival!
 
+![Cookie](heart.jpg)
+
 You will find more informations about the event on the 2018 website:  
 https://2018.cookie.paris
