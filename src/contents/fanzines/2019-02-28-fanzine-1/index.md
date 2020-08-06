@@ -1,5 +1,4 @@
 ---
-cover: thumbnail.png
 date: 2019-02-28
 file: Cookie-Collective-Fanzine-1-booklet.pdf
 pages:
