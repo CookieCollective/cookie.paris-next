@@ -1,5 +1,11 @@
 ---
+cover: cover.jpg
 date: 2020-02-01
+links:
+  - name: Photos by Gloria Marillier
+    url: /posts/2020-02-27-mini-cookie-party-gloria/
+  - name: Photos by Dorian Rigal
+    url: /posts/2020-02-28-mini-cookie-party-dorian/
 location:
   address: |-
     57 rue Etienne Marcel
@@ -11,61 +17,63 @@ title: Mini Cookie Party
 type: cookie
 ---
 
-Pour bien commencer la nouvelle année, le Cookie Collective vous invite à une journée d'ateliers et une soirée de concerts et de performance de live coding.
+## About
 
-Entrée libre et gratuite.  
-Vente de goodies à prix libre.
+To start the New Year off right, the Cookie Collective invites you to a day of workshops and an evening of concerts and live coding performances.
 
-## 📅 Programme
+Free admission.  
+Sale of goodies at free price.
 
-Ateliers :  
-► 14h30 - Initiation au Shader Coding  
-► 17h00 - Initiation à Notch (www.notch.one)
+## 📅 Timetable
+
+Workshops :  
+► 14h30 - Shader Coding  
+► 17h00 - [Notch](https://www.notch.one)
 
 Concerts :  
 ► 20h30 - Vandale integral + Léon Denise  
 ► 21h30 - Valden + Flopine  
 ► 22h30 - Vova + Théotime
 
-## 🎨 Ateliers
+## 🎨 Workshops
 
-### Atelier Shadercoding débutant avec Flopine et Hélène Legrand
+### Workshop Shadercoding beginner with Flopine et Hélène Legrand
 
-A l'aide du logiciel Kodelife, venez apprendre ce qu'est un shader et à coder vos effets visuels en GLSL, un langage de programmation pour la carte graphique.
+With the help of Kodelife software, come learn what a shader is and how to code your visual effects in GLSL, a programming language for the graphics card.
 
-L'atelier débutera avec des effets 2D pour aller progressivement vers la 3D et le raymarching. Vous verrez également comment contrôler votre effet avec une interface homme-machine comme une manette de jeu ou une console Midi.
+The workshop will start with 2D effects and gradually move towards 3D and raymarching. You will also see how to control your effect with a human-machine interface such as a gamepad or a Midi console.
 
-### Atelier Notch débutant avec Adrien Ravelli
+### Worksbhop Notch beginner with Adrien Ravelli
 
-Notch est un outil de création de motion graphics conçu pour le live et développé à l'origine par un groupe issu de la demoscene. Cet atelier propose une découverte de ce logiciel en partant de zéro et vous guidera pas à pas dans la conception de visuels temps réel.
+Notch is a motion graphics creation tool designed for live performance and originally developed by a band from demoscene. This workshop offers a discovery of this software from scratch and will guide you step by step in the design of real-time visuals.
 
 ## 🎤 Concerts
 
 ### Vandale integral + Léon Denise
 
-Vandale integral :  
-Live-coding audio avec Tidal Cycles.
+Vandale Integral  
+Audio live-coding with Tidal Cycles.
 
-Léon Denise :  
-Live coding visuel // shaders.  
+Léon Denise  
+Visual live coding  
 http://shaderland.com/
 
 ### Valden + Flopine
 
-Valden :  
-Valden compose et mixe en live de la chiptune joyeuse et énergétique. Venez danser sur ses sons électroniques tirés de vieilles consoles de jeux vidéo !  
+Valden  
+Valden composes and mixes cheerful and energetic chiptune live. Come dance to its electronic sounds taken from old video game consoles!  
 https://soundcloud.com/valden_music
 
-Flopine :  
-Live coding visuel // shaders.  
+Flopine  
+Visual live coding  
 https://twitter.com/FlopineYeah
 
 ### Vova + Théotime
 
 Vova :  
-Loin de se considérer comme un rappeur engagé, Vova se présente simplement comme un artiste hip-hop polymorphe à la prose enragée. Dans son viseur lyrical : le capital, l’injustice, l’abus de pouvoir, l’individualisme... Sa musique reflète un état d’esprit toujours alerte et loin du consensus.  
+Far from considering himself a committed rapper, Vova presents himself simply as a polymorphic hip-hop artist with rabid prose. In his lyrical sight: capital, injustice, abuse of power, individualism... His music reflects a state of mind that is always alert and far from consensus.  
 https://www.vova-continuum.com
 
 Théotime :  
-VJing // shaders.  
+VJing  
 https://moduloprime.com/
