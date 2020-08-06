@@ -4,27 +4,27 @@ const path = require('path');
 const SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS = {
 	events: {
 		collection: 'events',
-		post: true,
+		isPost: true,
 	},
 	fanzines: {
 		collection: 'projects',
-		post: true,
+		isPost: true,
 		template: 'fanzine',
 	},
 	news: {
 		collection: 'news',
-		post: true,
+		isPost: true,
 	},
 	photos: {
 		collection: 'photos',
-		post: true,
+		isPost: true,
 	},
 	projects: {
 		collection: 'projects',
-		post: true,
+		isPost: true,
 	},
 	static: {
-		post: false,
+		isPost: false,
 	},
 };
 
@@ -50,9 +50,9 @@ exports.onCreateNode = async ({
 		}
 
 		createNodeField({
-			name: 'post',
+			name: 'isPost',
 			node,
-			value: sourceProperty.post,
+			value: sourceProperty.isPost,
 		});
 
 		createNodeField({
