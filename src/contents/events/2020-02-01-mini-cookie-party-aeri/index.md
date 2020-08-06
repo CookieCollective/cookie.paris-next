@@ -21,6 +21,8 @@ type: cookie
 
 To start the New Year off right, the Cookie Collective invites you to a day of workshops and an evening of concerts and live coding performances.
 
+![Cookie](about.jpg)
+
 Free admission.  
 Sale of goodies at free price.
 

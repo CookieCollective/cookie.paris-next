@@ -1,5 +1,5 @@
 ---
-cover: cover.jpg
+cover: thumbnail.jpg
 date: 2018-11-13
 duringEvent:
   name: GROW

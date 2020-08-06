@@ -11,7 +11,7 @@ location:
     France
   name: Emphytéose
   url: https://emphytéose.fr/
-thumbnail: thumbnail.jpg
+thumbnail: thumbnail.png
 title: Live Coding Party
 type: cookie
 ---

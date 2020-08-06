@@ -8,7 +8,7 @@ location:
     France
   name: La Folie Numérique
   url: http://folie-numerique.fr/
-thumbnail: thumbnail.png
+thumbnail: thumbnail.jpg
 title: Cookie Showdown
 type: cookie
 ---

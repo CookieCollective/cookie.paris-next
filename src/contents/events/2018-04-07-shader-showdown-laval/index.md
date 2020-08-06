@@ -1,5 +1,5 @@
 ---
-cover: cover.png
+cover: thumbnail.jpg
 date: 2018-04-07
 duringEvent:
   name: Laval Virtual
@@ -11,7 +11,7 @@ location:
     France
   name: O'Regans
   url: https://www.facebook.com/ORegans-135863436463053/
-thumbnail: thumbnail.png
+thumbnail: thumbnail.jpg
 title: Shader Showdown
 type: cookie
 ---

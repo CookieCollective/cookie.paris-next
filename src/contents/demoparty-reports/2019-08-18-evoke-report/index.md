@@ -1,8 +1,14 @@
 ---
+cover: cover.png
 date: 2019-08-18
 duringEvent:
   name: Evoke
   url: https://2019.evoke.eu/
+links:
+  - name: Evoke website 2019
+    url: https://2019.evoke.eu
+  - name: Invitro by Limp Ninja
+    url: https://www.youtube.com/watch?v=4r1732c04aY
 releases:
   - title: PiaggioNonTroppo
     authors:

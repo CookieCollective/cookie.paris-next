@@ -31,12 +31,12 @@ type: cookie
 The Cookie Collective would like to shout out a huge THANKS to everyone who was involved in the success of the festival. We've accomplished to build a party that mix digital art, video game and demoscene, for free and for everyone.
 
 ![cookie party](images/c0.png)
-![cookie party](images/c1.png)
-![cookie party](images/c2.png)
 ![cookie party](images/c3.png)
 ![cookie party](images/c4.png)
 ![cookie party](images/c5.png)
 ![cookie party](images/c6.png)
+![cookie party](images/c1.png)
+![cookie party](images/c2.png)
 
-You will find more informations about the event on the 2019 website:  
+You will find more informations about the event on the website 2019:  
 https://2019.cookie.paris
