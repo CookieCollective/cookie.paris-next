@@ -1,30 +1,35 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
 
-const SOURCE_PROPERTIES = {
+const SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS = {
+	['demoparty-reports']: {
+		collection: 'news',
+		isPost: true,
+		template: 'demoparty-report',
+	},
 	events: {
 		collection: 'events',
-		post: true,
-		template: 'event',
+		isPost: true,
+	},
+	fanzines: {
+		collection: 'projects',
+		isPost: true,
+		template: 'fanzine',
 	},
 	news: {
 		collection: 'news',
-		post: true,
-		template: 'news',
+		isPost: true,
 	},
 	photos: {
 		collection: 'photos',
-		post: true,
-		template: 'gallery',
+		isPost: true,
 	},
 	projects: {
 		collection: 'projects',
-		post: true,
-		template: 'project',
+		isPost: true,
 	},
 	static: {
-		post: false,
-		template: 'static',
+		isPost: false,
 	},
 };
 
@@ -42,22 +47,23 @@ exports.onCreateNode = async ({
 			);
 		}
 
-		const sourceProperty = SOURCE_PROPERTIES[sourceInstanceName];
+		const sourceProperty =
+			SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS[sourceInstanceName];
 		if (!sourceProperty) {
 			console.log(JSON.stringify(internal));
 			throw new Error(`Source "${sourceInstanceName}" has no properties`);
 		}
 
 		createNodeField({
-			name: 'post',
+			name: 'isPost',
 			node,
-			value: sourceProperty.post,
+			value: sourceProperty.isPost,
 		});
 
 		createNodeField({
 			name: 'template',
 			node,
-			value: sourceProperty.template,
+			value: sourceProperty.template || 'default-content',
 		});
 
 		if (sourceProperty.collection) {
@@ -129,25 +135,20 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 	await Promise.all(
 		allMdx.nodes.map(async (node) => {
 			createPage({
-				component: path.join(
-					templatesPath,
-					`${node.fields.template}-index.tsx`
-				),
+				component: path.join(templatesPath, `${node.fields.template}.tsx`),
 				context: {
 					slug: node.fields.slug,
 				},
 				path: node.fields.slug,
 			});
 
-			switch (node.fields.template) {
-				case 'fanzine':
-					await createFanzineOnlinePages({
-						allImageSharp,
-						createPage,
-						graphql,
-						node,
-					});
-					break;
+			if (node.fields.template === 'fanzine') {
+				await createFanzineOnlinePages({
+					allImageSharp,
+					createPage,
+					graphql,
+					node,
+				});
 			}
 		})
 	);
@@ -240,7 +241,7 @@ async function createFanzineOnlinePages({
 		: [];
 
 	createPage({
-		component: path.join(templatesPath, `${node.fields.template}-online.tsx`),
+		component: path.join(templatesPath, `fanzine-online.tsx`),
 		context: {
 			collection: node.fields.collection,
 			pages,

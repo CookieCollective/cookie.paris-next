@@ -2,47 +2,27 @@ const path = require('path');
 
 const contentsPath = path.join(__dirname, 'src', 'contents');
 
+const sourceFilesystem = (name) => ({
+	options: {
+		name,
+		path: path.join(contentsPath, name),
+	},
+	resolve: 'gatsby-source-filesystem',
+});
+
 module.exports = {
 	plugins: [
 		'gatsby-plugin-typescript',
 		'gatsby-plugin-scss-typescript',
 		'gatsby-plugin-less',
 		'gatsby-plugin-react-helmet',
-		{
-			options: {
-				name: 'events',
-				path: path.join(contentsPath, 'events'),
-			},
-			resolve: 'gatsby-source-filesystem',
-		},
-		{
-			options: {
-				name: 'projects',
-				path: path.join(contentsPath, 'projects'),
-			},
-			resolve: 'gatsby-source-filesystem',
-		},
-		{
-			options: {
-				name: 'photos',
-				path: path.join(contentsPath, 'photos'),
-			},
-			resolve: 'gatsby-source-filesystem',
-		},
-		{
-			options: {
-				name: 'news',
-				path: path.join(contentsPath, 'news'),
-			},
-			resolve: 'gatsby-source-filesystem',
-		},
-		{
-			options: {
-				name: 'static',
-				path: path.join(contentsPath, 'static'),
-			},
-			resolve: 'gatsby-source-filesystem',
-		},
+		sourceFilesystem('demoparty-reports'),
+		sourceFilesystem('events'),
+		sourceFilesystem('fanzines'),
+		sourceFilesystem('news'),
+		sourceFilesystem('photos'),
+		sourceFilesystem('projects'),
+		sourceFilesystem('static'),
 		'gatsby-plugin-catch-links',
 		{
 			options: {

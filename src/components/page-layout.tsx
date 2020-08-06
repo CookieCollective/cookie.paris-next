@@ -143,8 +143,9 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 			<NavLinks slug={slug} />
 		</header>
 		<main className={styles.main}>{children}</main>
-		<footer>
+		<footer className={styles.footer}>
 			<NavLinks slug={slug} />
+			<div className={styles.footnotes}>Cookie Collective</div>
 		</footer>
 	</>
 );

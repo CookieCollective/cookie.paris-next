@@ -5,7 +5,7 @@ import { GridNode, MasonryLayout } from '../components/masonry-layout';
 export const query = graphql`
 	query {
 		allMdx(
-			filter: { fields: { collection: { eq: "events" }, post: { eq: true } } }
+			filter: { fields: { collection: { eq: "events" } } }
 			sort: { fields: frontmatter___date, order: DESC }
 		) {
 			nodes {

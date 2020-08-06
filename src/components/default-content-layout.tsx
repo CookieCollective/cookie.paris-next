@@ -68,11 +68,11 @@ export interface ContentNode {
 			address: string;
 			name: string;
 			url: string;
-		}[];
+		};
 		links?: {
 			name: string;
 			url: string;
-		};
+		}[];
 		subtitle?: string;
 		title: string;
 		width?: string;
