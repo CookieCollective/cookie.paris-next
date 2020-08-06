@@ -2,6 +2,11 @@ const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
 
 const SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS = {
+	['demoparty-reports']: {
+		collection: 'news',
+		isPost: true,
+		template: 'demoparty-report',
+	},
 	events: {
 		collection: 'events',
 		isPost: true,

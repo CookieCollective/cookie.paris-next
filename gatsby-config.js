@@ -10,6 +10,13 @@ module.exports = {
 		'gatsby-plugin-react-helmet',
 		{
 			options: {
+				name: 'demoparty-reports',
+				path: path.join(contentsPath, 'demoparty-reports'),
+			},
+			resolve: 'gatsby-source-filesystem',
+		},
+		{
+			options: {
 				name: 'events',
 				path: path.join(contentsPath, 'events'),
 			},
