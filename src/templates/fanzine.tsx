@@ -8,9 +8,6 @@ import styles from './fanzine.module.scss';
 export const query = graphql`
 	query($slug: String!) {
 		node: mdx(fields: { slug: { eq: $slug } }) {
-			fields {
-				slug
-			}
 			frontmatter {
 				file {
 					publicURL
@@ -24,9 +21,6 @@ export const query = graphql`
 interface Props {
 	data: {
 		node: ContentNode & {
-			fields: {
-				slug: string;
-			};
 			frontmatter: {
 				file?: {
 					publicURL: string;
@@ -47,7 +41,7 @@ export const Fanzine: React.FunctionComponent<Props> = ({
 		<ArticleLayout slug={slug} {...node.frontmatter}>
 			<BodyRenderer>{node.body}</BodyRenderer>
 			<div className={styles.links}>
-				<Link to={`${node.fields.slug}online/`}>Read online</Link>
+				<Link to={`${slug}online/`}>Read online</Link>
 				{node.frontmatter.file && (
 					<a href={node.frontmatter.file.publicURL}>Download booklet</a>
 				)}

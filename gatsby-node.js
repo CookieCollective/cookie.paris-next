@@ -5,7 +5,6 @@ const SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS = {
 	events: {
 		collection: 'events',
 		post: true,
-		template: 'event',
 	},
 	fanzines: {
 		collection: 'projects',
@@ -15,21 +14,17 @@ const SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS = {
 	news: {
 		collection: 'news',
 		post: true,
-		template: 'news',
 	},
 	photos: {
 		collection: 'photos',
 		post: true,
-		template: 'gallery',
 	},
 	projects: {
 		collection: 'projects',
 		post: true,
-		template: 'project',
 	},
 	static: {
 		post: false,
-		template: 'static',
 	},
 };
 
@@ -63,7 +58,7 @@ exports.onCreateNode = async ({
 		createNodeField({
 			name: 'template',
 			node,
-			value: sourceProperty.template,
+			value: sourceProperty.template || 'default-content',
 		});
 
 		if (sourceProperty.collection) {
