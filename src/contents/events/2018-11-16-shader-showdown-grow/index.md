@@ -7,6 +7,8 @@ duringEvent:
 links:
   - name: Photos by Edouard Ducos
     url: /posts/2018-11-13-shadershowdown-edouard
+  - name: GROW 2018 - Aftermovie
+    url: https://vimeo.com/307222995
 location:
   address: |-
     81 rue du Charolais
