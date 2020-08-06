@@ -7,7 +7,7 @@ links:
     url: /posts/2018-12-16-cookie-demoparty/
   - name: See the competition entries and results on DemoZoo.
     url: https://demozoo.org/parties/3669/
-  - name: 2018 website
+  - name: Website 2018
     url: https://2018.cookie.paris/
 location:
   address: |-
