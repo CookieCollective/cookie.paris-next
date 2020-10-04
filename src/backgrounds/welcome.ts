@@ -75,8 +75,8 @@ function actualMount(
 
 	const SEQUENCE_MATERIALS = [
 		// materials.rgbGlitch,
-		// materials.rainbowCircle,
-		materials.feedback,
+		materials.rainbowCircle,
+		// materials.feedback,
 	];
 	const SEQUENCE_DURATION_TIME = 10;
 
