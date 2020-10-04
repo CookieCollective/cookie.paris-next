@@ -80,6 +80,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 			<div className={styles.socialLinks}>
 				<a
 					href="mailto:contact@cookie.paris"
+					rel="noreferrer noopener"
 					target="_blank"
 					title="Contact us"
 				>
@@ -88,6 +89,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 				<span className={styles.icons}>
 					<a
 						href="https://discord.gg/VZQGhUC"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Join our Discord server"
 					>
@@ -95,6 +97,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					</a>
 					<a
 						href="https://www.facebook.com/CookieDemoparty/"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Visit our Facebook page"
 					>
@@ -102,6 +105,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					</a>
 					<a
 						href="https://github.com/CookieCollective"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Visit our GitHub page"
 					>
@@ -109,6 +113,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					</a>
 					<a
 						href="https://www.instagram.com/cookiedemoparty/"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Visit our Instagram page"
 					>
@@ -116,6 +121,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					</a>
 					<a
 						href="https://www.twitch.tv/cookiecollectif"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Visit our Twitch page"
 					>
@@ -123,6 +129,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					</a>
 					<a
 						href="https://twitter.com/CookieDemoparty"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Visit our Twitter page"
 					>
@@ -130,6 +137,7 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					</a>
 					<a
 						href="https://www.youtube.com/channel/UC20eaOqnUX156pkXtlWg9Kw"
+						rel="noreferrer noopener"
 						target="_blank"
 						title="Visit our YouTube page"
 					>

@@ -35,7 +35,6 @@ interface Props {
 	style?: React.CSSProperties;
 	subtitle?: string;
 	title: string;
-	year: string;
 }
 
 export const ArticleLayout: React.FunctionComponent<Props> = ({
@@ -51,7 +50,6 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 	style,
 	subtitle,
 	title,
-	year,
 }) => {
 	return (
 		<PageLayout slug={slug}>
@@ -59,7 +57,11 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 				<header>
 					<h1>{title}</h1>
 					{cover && (
-						<a href={cover.childImageSharp.original.src} target="_blank">
+						<a
+							href={cover.childImageSharp.original.src}
+							rel="noreferrer noopener"
+							target="_blank"
+						>
 							<Img
 								className={styles.image}
 								fluid={cover.childImageSharp.fluid}

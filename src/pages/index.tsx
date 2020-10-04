@@ -3,7 +3,7 @@ import React from 'react';
 import { FullScreenLayout } from '../components/full-screen-layout';
 import styles from './index.module.scss';
 
-export const Index: React.FunctionComponent = ({}) => {
+export const Index: React.FunctionComponent = () => {
 	return (
 		<FullScreenLayout backgroundKind="welcome">
 			<Link className={styles.center} to="/all">

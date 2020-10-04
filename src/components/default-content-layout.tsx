@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { FluidObject, FixedObject } from 'gatsby-image';
+import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { ArticleLayout } from './article-layout';
 import { BodyRenderer } from './body-renderer';

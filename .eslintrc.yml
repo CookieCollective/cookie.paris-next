@@ -1,18 +1,65 @@
 env:
   es6: true
-  node: true
 extends:
   - eslint:recommended
+  - prettier
   - plugin:import/errors
   - plugin:import/warnings
-  - plugin:import/typescript
-  - plugin:prettier/recommended
-parser: babel-eslint
+overrides:
+  - files:
+      - gatsby-browser.js
+    env:
+      browser: true
+    parserOptions:
+      sourceType: module
+  - files:
+      - gatsby-config.js
+      - gatsby-node.js
+    env:
+      node: true
+    extends:
+      - plugin:node/recommended
+    parserOptions:
+      sourceType: module
+  - files: "src/**/*.{ts,tsx}"
+    env:
+      browser: true
+    extends:
+      - prettier/@typescript-eslint
+      - plugin:@typescript-eslint/eslint-recommended
+      - plugin:@typescript-eslint/recommended
+      - plugin:@typescript-eslint/recommended-requiring-type-checking
+      - plugin:import/typescript
+      - plugin:react/recommended
+    parser: "@typescript-eslint/parser"
+    parserOptions:
+      jsx: true
+      project: tsconfig.json
+      sourceType: module
+      useJSXTextNode: true
+    plugins:
+      - "@typescript-eslint"
+    rules:
+      "@typescript-eslint/explicit-module-boundary-types": off
+      "@typescript-eslint/no-explicit-any": off
+      "@typescript-eslint/no-var-requires": off
+      "@typescript-eslint/no-unsafe-assignment": off
+      "@typescript-eslint/no-unsafe-member-access": off
+      import/no-unresolved:
+        - error
+        - ignore:
+            - ^raw-loader!
+      react/prop-types: off
+    settings:
+      react:
+        version: detect
 parserOptions:
-  ecmaVersion: 8
-  sourceType: module
+  ecmaVersion: 6
 plugins:
   - sort-keys-fix
 rules:
-  no-var: error
-  sort-keys-fix/sort-keys-fix: warn
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+  sort-keys-fix/sort-keys-fix: error

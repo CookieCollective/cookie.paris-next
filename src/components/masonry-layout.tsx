@@ -1,5 +1,4 @@
-import { Link } from 'gatsby';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import MasonryInfiniteScroller, { Size } from 'react-masonry-infinite';
@@ -13,7 +12,7 @@ for (let i = 1; i < 6; ++i) {
 	SIZES.push({
 		columns: i,
 		gutter: GUTTER,
-		mq: i > 1 ? i * (280 + GUTTER) + GUTTER + 'px' : undefined,
+		mq: i > 1 ? `${i * (280 + GUTTER) + GUTTER}px` : undefined,
 	});
 }
 export const query = graphql`

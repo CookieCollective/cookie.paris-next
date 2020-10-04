@@ -1,8 +1,8 @@
 import COMMON from 'raw-loader!./shaders/common.glsl';
 import FEEDBACK from 'raw-loader!./shaders/feedback.frag';
-import RGB_GLITCH from 'raw-loader!./shaders/rgb-glitch.frag';
 import RAINBOW_CIRCLE from 'raw-loader!./shaders/rainbow-circle.frag';
 import RENDER from 'raw-loader!./shaders/render.frag';
+import RGB_GLITCH from 'raw-loader!./shaders/rgb-glitch.frag';
 import SCREEN from 'raw-loader!./shaders/screen.vert';
 import SIMPLE from 'raw-loader!./shaders/simple.frag';
 import * as twgl from 'twgl.js';
@@ -53,16 +53,16 @@ function actualMount(
 				fragment: FEEDBACK,
 				vertex: SCREEN,
 			},
-			rgbGlitch: {
-				fragment: RGB_GLITCH,
-				vertex: SCREEN,
-			},
 			rainbowCircle: {
 				fragment: RAINBOW_CIRCLE,
 				vertex: SCREEN,
 			},
 			render: {
 				fragment: RENDER,
+				vertex: SCREEN,
+			},
+			rgbGlitch: {
+				fragment: RGB_GLITCH,
 				vertex: SCREEN,
 			},
 			simple: {
@@ -91,16 +91,15 @@ function actualMount(
 		time: number;
 	} = {
 		frame: undefined as any,
-		resolution: [1, 1],
-		tick: 0,
-		time: 0,
-
 		// http://twgljs.org/docs/module-twgl.html#.TextureOptions
 		image: twgl.createTexture(gl, {
 			flipY: 1,
-			src: '/cookie-collective-sdf.png',
 			min: gl.LINEAR,
+			src: '/cookie-collective-sdf.png',
 		}),
+		resolution: [1, 1],
+		tick: 0,
+		time: 0,
 	};
 
 	const onWindowResize = () => {
@@ -155,9 +154,9 @@ function actualMount(
 		element: canvas,
 
 		unmount: () => {
-			window.removeEventListener('resize', onWindowResize!, false);
+			window.removeEventListener('resize', onWindowResize, false);
 
-			cancelAnimationFrame(animationRequestId!);
+			cancelAnimationFrame(animationRequestId);
 
 			canvas.remove();
 		},

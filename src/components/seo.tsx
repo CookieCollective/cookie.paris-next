@@ -2,7 +2,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-export const SEO: React.FunctionComponent = ({ children }) => (
+export const SEO: React.FunctionComponent = () => (
 	<StaticQuery
 		query={graphql`
 			{
