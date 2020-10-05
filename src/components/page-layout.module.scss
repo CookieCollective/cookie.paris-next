@@ -27,6 +27,7 @@ a {
 	letter-spacing: 0.15em;
 	line-height: 0.8em;
 	margin-top: 0.2em;
+	margin-bottom: 0.1em;
 }
 
 .subtitle {
@@ -35,22 +36,19 @@ a {
 }
 
 .social-links {
-	display: none;
-
 	font-size: 1.34em;
+	line-height: 1.34em;
 
 	.icons {
-		margin: 0 8px;
-
 		* {
-			margin: 0 1px;
+			margin: 0 0.16em;
 		}
 	}
 }
 
 .page-links {
 	font-size: 1.65em;
-	margin: 0.4em 0;
+	margin: 0 0 0.4em 0;
 
 	a {
 		padding: 4px 5px;
