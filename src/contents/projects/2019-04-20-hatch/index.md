@@ -3,7 +3,7 @@ cover: cover.png
 date: 2019-04-20
 links:
   - name: web
-    url: https://github.com/leon196/Hatch
+    url: https://leon196.github.io/hatch/
   - name: youtube
     url: https://www.youtube.com/watch?v=G3P-K3AE52g
   - name: github
