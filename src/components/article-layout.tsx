@@ -38,11 +38,7 @@ export const query = graphql`
 			}
 			subtitle
 			thumbnail {
-				childImageSharp {
-					fixed(jpegQuality: 90, toFormat: JPG, width: 600) {
-						...GatsbyImageSharpFixed
-					}
-				}
+				publicURL
 			}
 			title
 		}
