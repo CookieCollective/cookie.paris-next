@@ -1,6 +1,5 @@
 ---
-title: About
-subtitle: The Cookie Collective
+title: About The Cookie Collective
 ---
 
 ![Image of Cookie Party](cover.jpg)
@@ -15,8 +14,12 @@ The **Cookie Party** is a digital art festival which brings together various com
 
 We organize **live coding jams**, in which artists train and create visuals and sounds in front of the audience.
 
-![Image of a live coding jam](livecoding.1.jpg)
+![Image of a live coding jam](livecoding.jpg)
 
 We publishes **fanzines**, which put the spotlights on various aspects of the digital creation.
 
 ![Image of a Cookie Collective fanzine](zine.jpg)
+
+We welcome any person who shares the same interests. Feel free to contact us, or join our Discord server.
+
+The collective originates from Paris, France, but now some of our members are located in other cities or coutries.
