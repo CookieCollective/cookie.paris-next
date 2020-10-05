@@ -1,21 +1,21 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import {
-	ContentNode,
 	DefaultContentLayout,
+	MdxDefaultContentData,
 } from '../components/default-content-layout';
 
 export const query = graphql`
 	query($slug: String!) {
 		node: mdx(fields: { slug: { eq: $slug } }) {
-			...PostNode
+			...MdxDefaultContentData
 		}
 	}
 `;
 
 interface Props {
 	data: {
-		node: ContentNode;
+		node: MdxDefaultContentData;
 	};
 	pageContext: {
 		slug: string;

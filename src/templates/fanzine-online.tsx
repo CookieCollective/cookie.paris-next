@@ -7,8 +7,11 @@ import styles from './fanzine-online.module.scss';
 export const query = graphql`
 	query($slug: String!) {
 		node: mdx(fields: { slug: { eq: $slug } }) {
-			body
+			excerpt
 			frontmatter {
+				thumbnail {
+					publicURL
+				}
 				title
 			}
 		}
@@ -18,7 +21,11 @@ export const query = graphql`
 interface Props {
 	data: {
 		node: {
+			excerpt?: string;
 			frontmatter: {
+				thumbnail?: {
+					publicURL: string;
+				};
 				title: string;
 			};
 		};
@@ -38,12 +45,13 @@ interface Props {
 				width: number;
 			};
 		}[];
+		slug: string;
 	};
 }
 
 export const FanzineOnline: React.FunctionComponent<Props> = ({
 	data: { node },
-	pageContext: { pages },
+	pageContext: { pages, slug },
 }) => {
 	const cells = pages.map((page, pageIndex) => {
 		const [backgroundOpacity, setBackgroundOpacity] = useState(1);
@@ -114,7 +122,19 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 	});
 
 	return (
-		<FullScreenLayout {...node.frontmatter}>
+		<FullScreenLayout
+			description={node.excerpt}
+			openGraph={{
+				images: node.frontmatter.thumbnail && [
+					{
+						url: node.frontmatter.thumbnail.publicURL,
+					},
+				],
+				title: node.frontmatter.title,
+			}}
+			slug={slug}
+			{...node.frontmatter}
+		>
 			<Grid columns={2} gutterSize={GutterSize.None}>
 				{cells}
 			</Grid>

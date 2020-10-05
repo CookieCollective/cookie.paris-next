@@ -1,9 +1,9 @@
 const path = require('path');
 
 const siteMetadata = {
-	description:
+	defaultDescription:
 		'Cookie Collective gathers digital artists involved in real-time creation. This covers video games, art installations, video mapping, demoscene, live coding, etc.',
-	image: 'https://lengstorf.com/images/jason-lengstorf.jpg',
+	defaultImage: 'https://cookie.paris/image.jpg',
 	title: 'Cookie Collective',
 	url: 'https://cookie.paris',
 };
@@ -78,7 +78,12 @@ module.exports = {
 			options: {
 				language: 'en',
 				openGraph: {
-					description: siteMetadata.description,
+					description: siteMetadata.defaultDescription,
+					images: [
+						{
+							url: siteMetadata.defaultImage,
+						},
+					],
 					site_name: siteMetadata.title,
 					type: 'website',
 					url: siteMetadata.url,

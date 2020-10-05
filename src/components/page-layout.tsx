@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import { Link } from 'gatsby';
-import { GatsbySeo, GatsbySeoProps } from 'gatsby-plugin-next-seo';
+import { GatsbySeoProps } from 'gatsby-plugin-next-seo';
 import React from 'react';
 import { Background } from './background';
 import styles from './page-layout.module.scss';
+import { Seo } from './seo';
 
 interface NavLinksProps {
 	slug: string;
@@ -69,7 +70,7 @@ interface Props extends GatsbySeoProps {
 
 export const PageLayout: React.FunctionComponent<Props> = (props) => (
 	<>
-		<GatsbySeo {...props} />
+		<Seo {...props} />
 		<Background kind="main" />
 		<header>
 			<Link to="/">

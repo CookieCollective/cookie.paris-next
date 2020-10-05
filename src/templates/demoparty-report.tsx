@@ -3,13 +3,14 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticleLayout } from '../components/article-layout';
 import { BodyRenderer } from '../components/body-renderer';
-import { ContentNode } from '../components/default-content-layout';
+import { MdxDefaultContentData } from '../components/default-content-layout';
 import { YoutubeVideo } from '../components/video-iframe';
 import styles from './demoparty-report.module.scss';
 
 export const query = graphql`
 	query($slug: String!) {
 		node: mdx(fields: { slug: { eq: $slug } }) {
+			...MdxDefaultContentData
 			frontmatter {
 				releases {
 					authors {
@@ -31,14 +32,13 @@ export const query = graphql`
 					title
 				}
 			}
-			...PostNode
 		}
 	}
 `;
 
 interface Props {
 	data: {
-		node: ContentNode & {
+		node: MdxDefaultContentData & {
 			frontmatter: {
 				releases: {
 					authors: {
@@ -86,7 +86,7 @@ export const DemopartyReport: React.FunctionComponent<Props> = ({
 	pageContext: { slug },
 }) => {
 	return (
-		<ArticleLayout slug={slug} {...node.frontmatter}>
+		<ArticleLayout node={node} slug={slug}>
 			<BodyRenderer>{node.body}</BodyRenderer>
 			<h2>Releases</h2>
 			{node.frontmatter.releases.map((release) => (
