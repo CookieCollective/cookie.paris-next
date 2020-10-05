@@ -1,5 +1,13 @@
 const path = require('path');
 
+const siteMetadata = {
+	description:
+		'Cookie Collective gathers digital artists involved in real-time creation. This covers video games, art installations, video mapping, demoscene, live coding, etc.',
+	image: 'https://lengstorf.com/images/jason-lengstorf.jpg',
+	title: 'Cookie Collective',
+	url: 'https://cookie.paris',
+};
+
 const contentsPath = path.join(__dirname, 'src', 'contents');
 
 const sourceFilesystem = (name) => ({
@@ -15,7 +23,6 @@ module.exports = {
 		'gatsby-plugin-typescript',
 		'gatsby-plugin-scss-typescript',
 		'gatsby-plugin-less',
-		'gatsby-plugin-react-helmet',
 		sourceFilesystem('demoparty-reports'),
 		sourceFilesystem('events'),
 		sourceFilesystem('fanzines'),
@@ -67,11 +74,23 @@ module.exports = {
 			},
 			resolve: 'gatsby-plugin-mailchimp',
 		},
+		{
+			options: {
+				language: 'en',
+				openGraph: {
+					description: siteMetadata.description,
+					site_name: siteMetadata.title,
+					type: 'website',
+					url: siteMetadata.url,
+				},
+				titleTemplate: `%s | ${siteMetadata.title}`,
+				twitter: {
+					cardType: 'summary',
+					site: '@CookieDemoparty',
+				},
+			},
+			resolve: 'gatsby-plugin-next-seo',
+		},
 	],
-	siteMetadata: {
-		description: 'foobar',
-		image: 'https://lengstorf.com/images/jason-lengstorf.jpg',
-		siteUrl: 'https://cookie.paris',
-		title: 'Cookie Collective',
-	},
+	siteMetadata,
 };

@@ -9,8 +9,10 @@ export interface Module {
 	mount(container: HTMLElement): MountedModule;
 }
 
-export const backgroundService = {
-	display(kind: BackgroundKind) {
+export const backgroundService: {
+	display(kind: BackgroundKind): void;
+} = {
+	display() {
 		// Nothing.
 	},
 };
@@ -23,11 +25,11 @@ if (typeof window !== 'undefined') {
 	let currentKind: BackgroundKind;
 	let currentMountedModule: MountedModule | undefined;
 
-	function unmountModule(module: MountedModule) {
+	const unmountModule = (module: MountedModule) => {
 		module.unmount();
-	}
+	};
 
-	function mountModule(module: Module) {
+	const mountModule = (module: Module) => {
 		if (currentMountedModule) {
 			setTimeout(unmountModule, 400, currentMountedModule);
 		}
@@ -40,7 +42,11 @@ if (typeof window !== 'undefined') {
 			100,
 			currentMountedModule.element.style
 		);
-	}
+	};
+
+	const handleErrors = (err: any) => {
+		throw err;
+	};
 
 	backgroundService.display = (kind) => {
 		if (kind === currentKind) {
@@ -50,11 +56,11 @@ if (typeof window !== 'undefined') {
 
 		switch (kind) {
 			case 'main':
-				import('./backgrounds/main').then(mountModule);
+				import('./backgrounds/main').then(mountModule).catch(handleErrors);
 				break;
 
 			case 'welcome':
-				import('./backgrounds/welcome').then(mountModule);
+				import('./backgrounds/welcome').then(mountModule).catch(handleErrors);
 				break;
 
 			default:

@@ -9,7 +9,7 @@ export const AspectRatio: React.FC<Props> = ({ value, children }) => (
 	<div
 		className={styles.wrapper}
 		style={{
-			paddingBottom: 100 / value + '%',
+			paddingBottom: `${100 / value}%`,
 		}}
 	>
 		{children}

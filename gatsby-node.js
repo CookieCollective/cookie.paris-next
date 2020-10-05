@@ -1,5 +1,5 @@
-const { createFilePath } = require('gatsby-source-filesystem');
 const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 const SOURCE_INSTANCE_NAME_TO_SOURCE_PROPERTIES_MAPPINGS = {
 	['demoparty-reports']: {

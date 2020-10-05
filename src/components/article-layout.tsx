@@ -1,8 +1,47 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import styles from './article-layout.module.scss';
 import { Date } from './date';
 import { PageLayout } from './page-layout';
+
+export const query = graphql`
+	fragment ArticleFrontmatter on MdxFrontmatter {
+		author
+		cover {
+			childImageSharp {
+				fluid(jpegQuality: 90, toFormat: JPG, srcSetBreakpoints: [400, 760]) {
+					...GatsbyImageSharpFluid
+				}
+				original {
+					height
+					src
+					width
+				}
+			}
+			publicURL
+		}
+		date(formatString: "LL")
+		duringEvent {
+			name
+			url
+		}
+		endDate(formatString: "LL")
+		location {
+			address
+			name
+			url
+		}
+		links {
+			name
+			url
+		}
+		subtitle
+		title
+		width
+		year: date(formatString: "YYYY")
+	}
+`;
 
 interface Props {
 	author?: string;
@@ -15,6 +54,7 @@ interface Props {
 				width: number;
 			};
 		};
+		publicURL: string;
 	};
 	date?: string;
 	duringEvent?: {
@@ -35,7 +75,6 @@ interface Props {
 	style?: React.CSSProperties;
 	subtitle?: string;
 	title: string;
-	year: string;
 }
 
 export const ArticleLayout: React.FunctionComponent<Props> = ({
@@ -51,15 +90,44 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 	style,
 	subtitle,
 	title,
-	year,
 }) => {
+	const sideData = useStaticQuery<{
+		site: {
+			siteMetadata: {
+				url: string;
+			};
+		};
+	}>(graphql`
+		query {
+			site {
+				siteMetadata {
+					url
+				}
+			}
+		}
+	`);
+
 	return (
-		<PageLayout slug={slug}>
+		<PageLayout
+			slug={slug}
+			title={date ? `${title} (${date})` : title}
+			openGraph={{
+				images: cover && [
+					{
+						url: sideData.site.siteMetadata.url + cover.publicURL,
+					},
+				],
+			}}
+		>
 			<article className={styles.article} style={style}>
 				<header>
 					<h1>{title}</h1>
 					{cover && (
-						<a href={cover.childImageSharp.original.src} target="_blank">
+						<a
+							href={cover.childImageSharp.original.src}
+							rel="noreferrer noopener"
+							target="_blank"
+						>
 							<Img
 								className={styles.image}
 								fluid={cover.childImageSharp.fluid}

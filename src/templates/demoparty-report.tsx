@@ -1,11 +1,11 @@
-import { graphql, Link } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticleLayout } from '../components/article-layout';
 import { BodyRenderer } from '../components/body-renderer';
 import { ContentNode } from '../components/default-content-layout';
-import styles from './demoparty-report.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { YoutubeVideo } from '../components/video-iframe';
+import styles from './demoparty-report.module.scss';
 
 export const query = graphql`
 	query($slug: String!) {
@@ -100,14 +100,14 @@ export const DemopartyReport: React.FunctionComponent<Props> = ({
 						.
 					</div>
 					<div>
-						ranked{' '}
-						{release.competition.rank + ordSuffix(release.competition.rank)} in
-						the {release.competition.category} competition
+						ranked {release.competition.rank}
+						{ordSuffix(release.competition.rank)} in the{' '}
+						{release.competition.category} competition
 					</div>
 
 					{release.media && (
 						<div>
-							{release.media.map((media, i) => {
+							{release.media.map((media) => {
 								if (media.youTube) {
 									return (
 										<YoutubeVideo key={media.youTube} videoId={media.youTube} />

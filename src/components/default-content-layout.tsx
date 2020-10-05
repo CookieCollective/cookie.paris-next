@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { FluidObject, FixedObject } from 'gatsby-image';
+import { FluidObject } from 'gatsby-image';
 import React from 'react';
 import { ArticleLayout } from './article-layout';
 import { BodyRenderer } from './body-renderer';
@@ -8,38 +8,7 @@ export const query = graphql`
 	fragment PostNode on Mdx {
 		body
 		frontmatter {
-			author
-			cover {
-				childImageSharp {
-					fluid(jpegQuality: 90, toFormat: JPG, srcSetBreakpoints: [400, 760]) {
-						...GatsbyImageSharpFluid
-					}
-					original {
-						height
-						src
-						width
-					}
-				}
-			}
-			date(formatString: "LL")
-			duringEvent {
-				name
-				url
-			}
-			endDate(formatString: "LL")
-			location {
-				address
-				name
-				url
-			}
-			links {
-				name
-				url
-			}
-			subtitle
-			title
-			width
-			year: date(formatString: "YYYY")
+			...ArticleFrontmatter
 		}
 	}
 `;
@@ -57,6 +26,7 @@ export interface ContentNode {
 					width: number;
 				};
 			};
+			publicURL: string;
 		};
 		date: string;
 		duringEvent?: {

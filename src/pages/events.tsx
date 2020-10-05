@@ -23,7 +23,12 @@ interface Props {
 	};
 }
 
-export const Events: React.FunctionComponent<Props> = ({ data }) =>
-	data ? <MasonryLayout nodes={data.allMdx.nodes} slug="/events/" /> : null;
+export const Events: React.FunctionComponent<Props> = ({ data }) => (
+	<MasonryLayout
+		nodes={data && data.allMdx.nodes}
+		slug="/events/"
+		title="Events"
+	/>
+);
 
 export default Events;

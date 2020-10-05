@@ -42,6 +42,7 @@ interface Props {
 }
 
 export const FanzineOnline: React.FunctionComponent<Props> = ({
+	data: { node },
 	pageContext: { pages },
 }) => {
 	const cells = pages.map((page, pageIndex) => {
@@ -79,8 +80,9 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 					style={{
 						backgroundImage: `url("${page.fixed.base64}")`,
 						opacity: backgroundOpacity,
-						paddingBottom:
-							(page.original.height / page.original.width) * 100 + '%',
+						paddingBottom: `${
+							(page.original.height / page.original.width) * 100
+						}%`,
 					}}
 				/>
 				<picture>
@@ -101,7 +103,7 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 		return (
 			<Cell key={pageIndex}>
 				{page.link ? (
-					<a href={page.link} target="_blank">
+					<a href={page.link} rel="noreferrer noopener" target="_blank">
 						{content}
 					</a>
 				) : (
@@ -112,7 +114,7 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 	});
 
 	return (
-		<FullScreenLayout>
+		<FullScreenLayout {...node.frontmatter}>
 			<Grid columns={2} gutterSize={GutterSize.None}>
 				{cells}
 			</Grid>

@@ -151,9 +151,15 @@ function actualMount(
 	]);
 
 	const bufferInfo = twgl.createBufferInfoFromArrays(gl, {
-		indices: { numComponents: 2, data: indices },
+		indices: {
+			data: indices,
+			numComponents: 2,
+		},
 		position,
-		seed: { numComponents: 4, data: seed },
+		seed: {
+			data: seed,
+			numComponents: 4,
+		},
 	});
 
 	const cameraMatrix = m4.lookAt([0, 0, 10], [0, 0, 0], [0, 1, 0]);
@@ -215,9 +221,9 @@ function actualMount(
 		element: canvas,
 
 		unmount: () => {
-			window.removeEventListener('resize', onWindowResize!, false);
+			window.removeEventListener('resize', onWindowResize, false);
 
-			cancelAnimationFrame(animationRequestId!);
+			cancelAnimationFrame(animationRequestId);
 
 			canvas.remove();
 		},

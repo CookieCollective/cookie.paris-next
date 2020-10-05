@@ -1,7 +1,7 @@
 declare module '@mdx-js/react';
 
 declare module 'gatsby-plugin-mailchimp' {
-	export default function(
+	export default function (
 		email: string
 	): Promise<{
 		result: 'success' | 'error';
@@ -18,7 +18,7 @@ declare module 'react-masonry-infinite' {
 		mq?: string;
 	}
 
-	export default class extends React.Component<{
+	export default class MasonryInfiniteScroller extends React.Component<{
 		className?: string;
 		hasMore: boolean;
 		loadMore: () => void;

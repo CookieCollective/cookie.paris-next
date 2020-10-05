@@ -1,16 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import { Link } from 'gatsby';
+import { GatsbySeo, GatsbySeoProps } from 'gatsby-plugin-next-seo';
 import React from 'react';
 import { Background } from './background';
 import styles from './page-layout.module.scss';
-import { SEO } from './seo';
 
-interface Props {
+interface NavLinksProps {
 	slug: string;
 }
 
-const NavLinks: React.FC<Props> = ({ slug }) => (
+const NavLinks: React.FC<NavLinksProps> = ({ slug }) => (
 	<nav className={styles.pageLinks}>
 		<Link
 			to="/all/"
@@ -63,89 +63,110 @@ const NavLinks: React.FC<Props> = ({ slug }) => (
 	</nav>
 );
 
-export const PageLayout: React.FunctionComponent<Props> = ({
-	children,
-	slug,
-}) => (
+interface Props extends GatsbySeoProps {
+	slug: string;
+}
+
+export const PageLayout: React.FunctionComponent<Props> = (props) => (
 	<>
-		<SEO />
+		<GatsbySeo {...props} />
 		<Background kind="main" />
 		<header>
 			<Link to="/">
 				<div className={styles.title}>Cookie Collective</div>
-				{/* <div className={styles.subtitle}> */}
-				{/* Digital artists involved in real-time creation */}
-				{/* </div> */}
 			</Link>
 			<div className={styles.socialLinks}>
 				<a
 					href="mailto:contact@cookie.paris"
+					rel="noreferrer noopener"
 					target="_blank"
 					title="Contact us"
 				>
 					Contact
 				</a>
-				<span className={styles.icons}>
-					<a
-						href="https://discord.gg/VZQGhUC"
-						target="_blank"
-						title="Join our Discord server"
-					>
-						<FontAwesomeIcon icon={['fab', 'discord']} />
-					</a>
-					<a
-						href="https://www.facebook.com/CookieDemoparty/"
-						target="_blank"
-						title="Visit our Facebook page"
-					>
-						<FontAwesomeIcon icon={['fab', 'facebook']} />
-					</a>
-					<a
-						href="https://github.com/CookieCollective"
-						target="_blank"
-						title="Visit our GitHub page"
-					>
-						<FontAwesomeIcon icon={['fab', 'github']} />
-					</a>
-					<a
-						href="https://www.instagram.com/cookiedemoparty/"
-						target="_blank"
-						title="Visit our Instagram page"
-					>
-						<FontAwesomeIcon icon={['fab', 'instagram']} />
-					</a>
-					<a
-						href="https://www.twitch.tv/cookiecollectif"
-						target="_blank"
-						title="Visit our Twitch page"
-					>
-						<FontAwesomeIcon icon={['fab', 'twitch']} />
-					</a>
-					<a
-						href="https://twitter.com/CookieDemoparty"
-						target="_blank"
-						title="Visit our Twitter page"
-					>
-						<FontAwesomeIcon icon={['fab', 'twitter']} />
-					</a>
-					<a
-						href="https://www.youtube.com/channel/UC20eaOqnUX156pkXtlWg9Kw"
-						target="_blank"
-						title="Visit our YouTube page"
-					>
-						<FontAwesomeIcon icon={['fab', 'youtube']} />
-					</a>
-				</span>
-				<Link to="/newsletter/" title="Subscribe to the newsletter">
+				<a
+					href="https://discord.gg/VZQGhUC"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Join our Discord server"
+				>
+					<FontAwesomeIcon icon={['fab', 'discord']} />
+				</a>
+				<a
+					href="https://www.facebook.com/CookieDemoparty/"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Visit our Facebook page"
+				>
+					<FontAwesomeIcon icon={['fab', 'facebook']} />
+				</a>
+				<a
+					href="https://github.com/CookieCollective"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Visit our GitHub page"
+				>
+					<FontAwesomeIcon icon={['fab', 'github']} />
+				</a>
+				<a
+					href="https://www.instagram.com/cookiedemoparty/"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Visit our Instagram page"
+				>
+					<FontAwesomeIcon icon={['fab', 'instagram']} />
+				</a>
+				<a
+					href="https://www.twitch.tv/cookiecollectif"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Visit our Twitch page"
+				>
+					<FontAwesomeIcon icon={['fab', 'twitch']} />
+				</a>
+				<a
+					href="https://twitter.com/CookieDemoparty"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Visit our Twitter page"
+				>
+					<FontAwesomeIcon icon={['fab', 'twitter']} />
+				</a>
+				<a
+					href="https://www.youtube.com/channel/UC20eaOqnUX156pkXtlWg9Kw"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="Visit our YouTube page"
+				>
+					<FontAwesomeIcon icon={['fab', 'youtube']} />
+				</a>
+				<Link
+					className={classnames({
+						[styles.active]: props.slug === '/newsletter/',
+					})}
+					title="Subscribe to the newsletter"
+					to="/newsletter/"
+				>
 					Newsletter
 				</Link>
 			</div>
-			<NavLinks slug={slug} />
+			<NavLinks slug={props.slug} />
 		</header>
-		<main className={styles.main}>{children}</main>
+		<main className={styles.main}>{props.children}</main>
 		<footer className={styles.footer}>
-			<NavLinks slug={slug} />
-			<div className={styles.footnotes}>Cookie Collective</div>
+			<NavLinks slug={props.slug} />
+			<div className={styles.footnotes}>
+				Cookie Collective &ndash;{' '}
+				<Link
+					className={classnames({
+						[styles.active]: props.slug === '/credits/',
+					})}
+					title="Credits"
+					to="/credits/"
+				>
+					Credits
+				</Link>
+			</div>
 		</footer>
 	</>
 );
