@@ -141,6 +141,14 @@ export const PageLayout: React.FunctionComponent<Props> = (props) => (
 				>
 					<FontAwesomeIcon icon={['fab', 'youtube']} />
 				</a>
+				<a
+					href="/rss.xml"
+					rel="noreferrer noopener"
+					target="_blank"
+					title="RSS Feed"
+				>
+					<FontAwesomeIcon icon={['fas', 'rss']} />
+				</a>
 				<Link
 					className={classnames({
 						[styles.active]: props.slug === '/newsletter/',

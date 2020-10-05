@@ -97,6 +97,46 @@ module.exports = {
 			},
 			resolve: 'gatsby-plugin-next-seo',
 		},
+		{
+			options: {
+				feeds: [
+					{
+						output: '/rss.xml',
+						query: `
+							{
+								allMdx(
+									filter: { fields: { isPost: { eq: true } } }
+									sort: { fields: frontmatter___date, order: DESC }
+								) {
+									nodes {
+										excerpt
+										fields {
+											guid
+											slug
+										}
+										frontmatter {
+											author
+											date
+											title
+										}
+									}
+								}
+							}
+						`,
+						serialize: ({ query: { allMdx } }) =>
+							allMdx.nodes.map((node) => ({
+								...node.frontmatter,
+								date: node.frontmatter.date,
+								description: node.excerpt,
+								guid: node.fields.guid,
+								url: siteMetadata.url + node.fields.slug,
+							})),
+						title: siteMetadata.title + "'s RSS Feed",
+					},
+				],
+			},
+			resolve: `gatsby-plugin-feed`,
+		},
 		'gatsby-plugin-sitemap',
 	],
 	siteMetadata,

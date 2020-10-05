@@ -79,6 +79,12 @@ exports.onCreateNode = async ({
 			node,
 		});
 
+		createNodeField({
+			name: 'guid',
+			node,
+			value: relativeFilePath,
+		});
+
 		if (sourceInstanceName === 'static') {
 			createNodeField({
 				name: 'slug',
