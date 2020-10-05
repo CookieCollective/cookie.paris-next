@@ -39,10 +39,8 @@ a {
 	font-size: 1.34em;
 	line-height: 1.34em;
 
-	.icons {
-		* {
-			margin: 0 0.16em;
-		}
+	& > * {
+		margin: 0 0.24em;
 	}
 }
 

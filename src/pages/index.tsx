@@ -10,7 +10,7 @@ export const Index: React.FunctionComponent = () => {
 			title="Cookie Collective"
 			titleTemplate="%s"
 		>
-			<Link className={styles.center} to="/all">
+			<Link className={styles.center} to="/all/">
 				<img src="/cookie-collective.png" />
 			</Link>
 		</FullScreenLayout>
