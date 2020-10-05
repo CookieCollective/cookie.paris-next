@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 import React from 'react';
 import styles from './article-layout.module.scss';
@@ -6,170 +6,177 @@ import { Date } from './date';
 import { PageLayout } from './page-layout';
 
 export const query = graphql`
-	fragment ArticleFrontmatter on MdxFrontmatter {
-		author
-		cover {
-			childImageSharp {
-				fluid(jpegQuality: 90, toFormat: JPG, srcSetBreakpoints: [400, 760]) {
-					...GatsbyImageSharpFluid
-				}
-				original {
-					height
-					src
-					width
+	fragment MdxArticleData on Mdx {
+		frontmatter {
+			author
+			cover {
+				childImageSharp {
+					fluid(jpegQuality: 90, toFormat: JPG, srcSetBreakpoints: [400, 760]) {
+						...GatsbyImageSharpFluid
+					}
+					original {
+						height
+						src
+						width
+					}
 				}
 			}
-			publicURL
+			date(formatString: "LL")
+			duringEvent {
+				name
+				url
+			}
+			endDate(formatString: "LL")
+			location {
+				address
+				name
+				url
+			}
+			links {
+				name
+				url
+			}
+			subtitle
+			thumbnail {
+				childImageSharp {
+					fixed(jpegQuality: 90, toFormat: JPG, width: 600) {
+						...GatsbyImageSharpFixed
+					}
+				}
+			}
+			title
 		}
-		date(formatString: "LL")
-		duringEvent {
-			name
-			url
-		}
-		endDate(formatString: "LL")
-		location {
-			address
-			name
-			url
-		}
-		links {
-			name
-			url
-		}
-		subtitle
-		title
-		width
-		year: date(formatString: "YYYY")
 	}
 `;
 
-interface Props {
-	author?: string;
-	cover?: {
-		childImageSharp: {
-			fluid: FluidObject;
-			original: {
-				height: number;
-				src: string;
-				width: number;
+export interface MdxArticleData {
+	frontmatter: {
+		author?: string;
+		cover?: {
+			childImageSharp: {
+				fluid: FluidObject;
+				original: {
+					height: number;
+					src: string;
+					width: number;
+				};
 			};
 		};
-		publicURL: string;
+		date?: string;
+		duringEvent?: {
+			name: string;
+			url: string;
+		};
+		endDate?: string;
+		links?: {
+			name: string;
+			url: string;
+		}[];
+		location?: {
+			address: string;
+			name: string;
+			url: string;
+		};
+		subtitle?: string;
+		thumbnail: {
+			publicURL: string;
+		};
+		title: string;
 	};
-	date?: string;
-	duringEvent?: {
-		name: string;
-		url: string;
-	};
-	endDate?: string;
-	links?: {
-		name: string;
-		url: string;
-	}[];
-	location?: {
-		address: string;
-		name: string;
-		url: string;
-	};
-	slug: string;
-	style?: React.CSSProperties;
-	subtitle?: string;
-	title: string;
 }
 
-export const ArticleLayout: React.FunctionComponent<Props> = ({
-	author,
-	children,
-	cover,
-	date,
-	duringEvent,
-	endDate,
-	location,
-	links,
-	slug,
-	style,
-	subtitle,
-	title,
-}) => {
-	const sideData = useStaticQuery<{
-		site: {
-			siteMetadata: {
-				url: string;
-			};
-		};
-	}>(graphql`
-		query {
-			site {
-				siteMetadata {
-					url
-				}
-			}
-		}
-	`);
+interface Props {
+	description?: string;
+	node: MdxArticleData;
+	slug: string;
+	style?: React.CSSProperties;
+}
+
+export const ArticleLayout: React.FunctionComponent<Props> = (props) => {
+	const { frontmatter } = props.node;
 
 	return (
 		<PageLayout
-			slug={slug}
-			title={date ? `${title} (${date})` : title}
+			description={props.description}
+			slug={props.slug}
 			openGraph={{
-				images: cover && [
+				images: frontmatter.thumbnail && [
 					{
-						url: sideData.site.siteMetadata.url + cover.publicURL,
+						url: frontmatter.thumbnail.publicURL,
 					},
 				],
+				title: frontmatter.title,
 			}}
+			title={
+				frontmatter.date
+					? `${frontmatter.title} (${frontmatter.date})`
+					: frontmatter.title
+			}
 		>
-			<article className={styles.article} style={style}>
+			<article className={styles.article} style={props.style}>
 				<header>
-					<h1>{title}</h1>
-					{cover && (
+					<h1>{frontmatter.title}</h1>
+					{frontmatter.cover && (
 						<a
-							href={cover.childImageSharp.original.src}
+							href={frontmatter.cover.childImageSharp.original.src}
 							rel="noreferrer noopener"
 							target="_blank"
 						>
 							<Img
 								className={styles.image}
-								fluid={cover.childImageSharp.fluid}
+								fluid={frontmatter.cover.childImageSharp.fluid}
 							/>
 						</a>
 					)}
-					{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-					{date && (
+					{frontmatter.subtitle && (
+						<div className={styles.subtitle}>{frontmatter.subtitle}</div>
+					)}
+					{frontmatter.date && (
 						<div className={styles.preposition}>
-							on <Date className={styles.date} date={date} endDate={endDate} />
+							on{' '}
+							<Date
+								className={styles.date}
+								date={frontmatter.date}
+								endDate={frontmatter.endDate}
+							/>
 						</div>
 					)}
-					{author && (
+					{frontmatter.author && (
 						<div className={styles.author}>
 							<div className={styles.preposition}>by </div>
-							{author}
+							{frontmatter.author}
 						</div>
 					)}
-					{duringEvent && (
+					{frontmatter.duringEvent && (
 						<div className={styles.duringEvent}>
 							<div className={styles.preposition}>during </div>
-							<a key={duringEvent.url} href={duringEvent.url}>
-								{duringEvent.name}
+							<a
+								key={frontmatter.duringEvent.url}
+								href={frontmatter.duringEvent.url}
+							>
+								{frontmatter.duringEvent.name}
 							</a>
 						</div>
 					)}
-					{location && (
+					{frontmatter.location && (
 						<div className={styles.location}>
 							<div className={styles.preposition}>at </div>
-							{location.url ? (
-								<a key={location.url} href={location.url}>
-									{location.name}
+							{frontmatter.location.url ? (
+								<a
+									key={frontmatter.location.url}
+									href={frontmatter.location.url}
+								>
+									{frontmatter.location.name}
 								</a>
 							) : (
-								<div>{location.name}</div>
+								<div>{frontmatter.location.name}</div>
 							)}
 							{/* <div className={styles.address}>{location.address}</div> */}
 						</div>
 					)}
-					{links && (
+					{frontmatter.links && (
 						<div className={styles.links}>
-							{links.map((link) => (
+							{frontmatter.links.map((link) => (
 								<a key={link.url} href={link.url}>
 									{link.name}
 								</a>
@@ -177,7 +184,7 @@ export const ArticleLayout: React.FunctionComponent<Props> = ({
 						</div>
 					)}
 				</header>
-				{children}
+				{props.children}
 			</article>
 		</PageLayout>
 	);

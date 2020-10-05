@@ -1,27 +1,30 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { ArticleLayout } from '../components/article-layout';
+import { ArticleLayout, MdxArticleData } from '../components/article-layout';
 import { BodyRenderer } from '../components/body-renderer';
-import { ContentNode } from '../components/default-content-layout';
 import styles from './fanzine.module.scss';
 
 export const query = graphql`
 	query($slug: String!) {
 		node: mdx(fields: { slug: { eq: $slug } }) {
+			body
+			excerpt
 			frontmatter {
 				file {
 					publicURL
 				}
 				title
 			}
-			...PostNode
+			...MdxArticleData
 		}
 	}
 `;
 
 interface Props {
 	data: {
-		node: ContentNode & {
+		node: MdxArticleData & {
+			body: string;
+			excerpt?: string;
 			frontmatter: {
 				file?: {
 					publicURL: string;
@@ -40,7 +43,7 @@ export const Fanzine: React.FunctionComponent<Props> = ({
 	pageContext: { slug },
 }) => {
 	return (
-		<ArticleLayout slug={slug} {...node.frontmatter}>
+		<ArticleLayout description={node.excerpt} node={node} slug={slug}>
 			<BodyRenderer>{node.body}</BodyRenderer>
 			<div className={styles.links}>
 				<Link to={`${slug}online/`}>Read online</Link>
