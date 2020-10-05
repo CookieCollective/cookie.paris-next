@@ -155,7 +155,18 @@ export const PageLayout: React.FunctionComponent<Props> = (props) => (
 		<main className={styles.main}>{props.children}</main>
 		<footer className={styles.footer}>
 			<NavLinks slug={props.slug} />
-			<div className={styles.footnotes}>Cookie Collective</div>
+			<div className={styles.footnotes}>
+				Cookie Collective &ndash;{' '}
+				<Link
+					className={classnames({
+						[styles.active]: props.slug === '/credits/',
+					})}
+					title="Credits"
+					to="/credits/"
+				>
+					Credits
+				</Link>
+			</div>
 		</footer>
 	</>
 );
