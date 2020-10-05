@@ -1,19 +1,16 @@
+import { GatsbySeo, GatsbySeoProps } from 'gatsby-plugin-next-seo';
 import React from 'react';
 import { BackgroundKind } from '../background-service';
 import { Background } from './background';
-import { SEO } from './seo';
 
-interface Props {
+interface Props extends GatsbySeoProps {
 	backgroundKind?: BackgroundKind;
 }
 
-export const FullScreenLayout: React.FunctionComponent<Props> = ({
-	children,
-	backgroundKind,
-}) => (
+export const FullScreenLayout: React.FunctionComponent<Props> = (props) => (
 	<>
-		<SEO />
-		<Background kind={backgroundKind} />
-		<main>{children}</main>
+		<GatsbySeo {...props} />
+		<Background kind={props.backgroundKind} />
+		<main>{props.children}</main>
 	</>
 );

@@ -23,7 +23,8 @@ interface Props {
 	};
 }
 
-export const All: React.FunctionComponent<Props> = ({ data }) =>
-	data ? <MasonryLayout nodes={data.allMdx.nodes} slug="/all/" /> : null;
+export const All: React.FunctionComponent<Props> = ({ data }) => (
+	<MasonryLayout nodes={data && data.allMdx.nodes} slug="/all/" title="All" />
+);
 
 export default All;

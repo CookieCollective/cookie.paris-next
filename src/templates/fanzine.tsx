@@ -12,6 +12,7 @@ export const query = graphql`
 				file {
 					publicURL
 				}
+				title
 			}
 			...PostNode
 		}
@@ -25,6 +26,7 @@ interface Props {
 				file?: {
 					publicURL: string;
 				};
+				title: string;
 			};
 		};
 	};

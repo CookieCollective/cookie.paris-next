@@ -23,7 +23,12 @@ interface Props {
 	};
 }
 
-export const Photos: React.FunctionComponent<Props> = ({ data }) =>
-	data ? <MasonryLayout nodes={data.allMdx.nodes} slug="/photos/" /> : null;
+export const Photos: React.FunctionComponent<Props> = ({ data }) => (
+	<MasonryLayout
+		nodes={data && data.allMdx.nodes}
+		slug="/photos/"
+		title="Photos"
+	/>
+);
 
 export default Photos;

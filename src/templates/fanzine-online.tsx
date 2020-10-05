@@ -42,6 +42,7 @@ interface Props {
 }
 
 export const FanzineOnline: React.FunctionComponent<Props> = ({
+	data: { node },
 	pageContext: { pages },
 }) => {
 	const cells = pages.map((page, pageIndex) => {
@@ -113,7 +114,7 @@ export const FanzineOnline: React.FunctionComponent<Props> = ({
 	});
 
 	return (
-		<FullScreenLayout>
+		<FullScreenLayout {...node.frontmatter}>
 			<Grid columns={2} gutterSize={GutterSize.None}>
 				{cells}
 			</Grid>

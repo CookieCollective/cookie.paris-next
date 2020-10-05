@@ -1,16 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import { Link } from 'gatsby';
+import { GatsbySeo, GatsbySeoProps } from 'gatsby-plugin-next-seo';
 import React from 'react';
 import { Background } from './background';
 import styles from './page-layout.module.scss';
-import { SEO } from './seo';
 
-interface Props {
+interface NavLinksProps {
 	slug: string;
 }
 
-const NavLinks: React.FC<Props> = ({ slug }) => (
+const NavLinks: React.FC<NavLinksProps> = ({ slug }) => (
 	<nav className={styles.pageLinks}>
 		<Link
 			to="/all/"
@@ -63,12 +63,13 @@ const NavLinks: React.FC<Props> = ({ slug }) => (
 	</nav>
 );
 
-export const PageLayout: React.FunctionComponent<Props> = ({
-	children,
-	slug,
-}) => (
+interface Props extends GatsbySeoProps {
+	slug: string;
+}
+
+export const PageLayout: React.FunctionComponent<Props> = (props) => (
 	<>
-		<SEO />
+		<GatsbySeo {...props} />
 		<Background kind="main" />
 		<header>
 			<Link to="/">
@@ -148,11 +149,11 @@ export const PageLayout: React.FunctionComponent<Props> = ({
 					Newsletter
 				</Link>
 			</div>
-			<NavLinks slug={slug} />
+			<NavLinks slug={props.slug} />
 		</header>
-		<main className={styles.main}>{children}</main>
+		<main className={styles.main}>{props.children}</main>
 		<footer className={styles.footer}>
-			<NavLinks slug={slug} />
+			<NavLinks slug={props.slug} />
 			<div className={styles.footnotes}>Cookie Collective</div>
 		</footer>
 	</>

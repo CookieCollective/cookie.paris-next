@@ -1,5 +1,6 @@
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { GatsbySeoProps } from 'gatsby-plugin-next-seo';
 import React from 'react';
 import MasonryInfiniteScroller, { Size } from 'react-masonry-infinite';
 import styles from './masonry-layout.module.scss';
@@ -15,6 +16,7 @@ for (let i = 1; i < 6; ++i) {
 		mq: i > 1 ? `${i * (280 + GUTTER) + GUTTER}px` : undefined,
 	});
 }
+
 export const query = graphql`
 	fragment GridNode on Mdx {
 		fields {
@@ -69,17 +71,14 @@ export interface GridNode {
 	id: string;
 }
 
-interface Props {
-	nodes: GridNode[];
+interface Props extends GatsbySeoProps {
+	nodes?: GridNode[];
 	slug: string;
 }
 
-export const MasonryLayout: React.FunctionComponent<Props> = ({
-	nodes,
-	slug,
-}) => {
+export const MasonryLayout: React.FunctionComponent<Props> = (props) => {
 	return (
-		<PageLayout slug={slug}>
+		<PageLayout {...props}>
 			<MasonryInfiniteScroller
 				className={styles.grid}
 				hasMore={false}
@@ -91,39 +90,42 @@ export const MasonryLayout: React.FunctionComponent<Props> = ({
 				}}
 				sizes={SIZES}
 			>
-				{nodes.map((node) => {
-					let subtitle = node.frontmatter.subtitle;
+				{props.nodes &&
+					props.nodes.map((node) => {
+						let subtitle = node.frontmatter.subtitle;
 
-					if (!subtitle) {
-						const subtitles: string[] = [];
+						if (!subtitle) {
+							const subtitles: string[] = [];
 
-						if (node.frontmatter.author) {
-							subtitles.push(`by ${node.frontmatter.author}`);
+							if (node.frontmatter.author) {
+								subtitles.push(`by ${node.frontmatter.author}`);
+							}
+
+							if (node.frontmatter.duringEvent) {
+								subtitles.push(`during ${node.frontmatter.duringEvent.name}`);
+							}
+
+							if (node.frontmatter.location) {
+								subtitles.push(`at ${node.frontmatter.location.name}`);
+							}
+
+							subtitle = subtitles.join(' ');
 						}
 
-						if (node.frontmatter.duringEvent) {
-							subtitles.push(`during ${node.frontmatter.duringEvent.name}`);
-						}
+						subtitle += ` (${node.frontmatter.year})`;
 
-						if (node.frontmatter.location) {
-							subtitles.push(`at ${node.frontmatter.location.name}`);
-						}
-
-						subtitle = subtitles.join(' ');
-					}
-
-					subtitle += ` (${node.frontmatter.year})`;
-
-					return (
-						<Link className={styles.item} key={node.id} to={node.fields.slug}>
-							{node.frontmatter.thumbnail && (
-								<Img fixed={node.frontmatter.thumbnail.childImageSharp.fixed} />
-							)}
-							<div className={styles.title}>{node.frontmatter.title}</div>
-							{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-						</Link>
-					);
-				})}
+						return (
+							<Link className={styles.item} key={node.id} to={node.fields.slug}>
+								{node.frontmatter.thumbnail && (
+									<Img
+										fixed={node.frontmatter.thumbnail.childImageSharp.fixed}
+									/>
+								)}
+								<div className={styles.title}>{node.frontmatter.title}</div>
+								{subtitle && <div className={styles.subtitle}>{subtitle}</div>}
+							</Link>
+						);
+					})}
 			</MasonryInfiniteScroller>
 		</PageLayout>
 	);
