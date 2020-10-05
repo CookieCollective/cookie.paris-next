@@ -4,6 +4,7 @@ const siteMetadata = {
 	defaultDescription:
 		'Cookie Collective gathers digital artists involved in real-time creation. This covers video games, art installations, video mapping, demoscene, live coding, etc.',
 	defaultImage: 'https://cookie.paris/image.jpg',
+	siteUrl: 'https://cookie.paris',
 	title: 'Cookie Collective',
 	url: 'https://cookie.paris',
 };
@@ -96,6 +97,7 @@ module.exports = {
 			},
 			resolve: 'gatsby-plugin-next-seo',
 		},
+		'gatsby-plugin-sitemap',
 	],
 	siteMetadata,
 };
