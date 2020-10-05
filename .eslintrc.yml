@@ -15,12 +15,16 @@ overrides:
   - files:
       - gatsby-config.js
       - gatsby-node.js
+      - gatsby-ssr.js
     env:
       node: true
     extends:
       - plugin:node/recommended
+      - plugin:react/recommended
     parserOptions:
+      jsx: true
       sourceType: module
+      useJSXTextNode: true
   - files: "src/**/*.{ts,tsx}"
     env:
       browser: true
@@ -50,9 +54,6 @@ overrides:
         - ignore:
             - ^raw-loader!
       react/prop-types: off
-    settings:
-      react:
-        version: detect
 parserOptions:
   ecmaVersion: 6
 plugins:
@@ -63,3 +64,6 @@ rules:
     - alphabetize:
         order: asc
   sort-keys-fix/sort-keys-fix: error
+settings:
+  react:
+    version: detect
