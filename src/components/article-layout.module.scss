@@ -54,9 +54,6 @@
 	.author,
 	.location,
 	.duringEvent {
-		a {
-			text-decoration: underline;
-		}
 		div {
 			display: inline;
 		}
@@ -95,13 +92,7 @@
 		margin: 20px 0 20px 0;
 	}
 
-	.content {
-		a {
-			text-decoration: underline;
-		}
-	}
-
-	.anaglyph {
-		display: inline;
+	a {
+		text-decoration: underline;
 	}
 }

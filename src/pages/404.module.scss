@@ -1,0 +1,31 @@
+@import '../styles/settings.scss';
+
+.article {
+	background-color: $transparent-background-color;
+	box-shadow: 0 0 10px 10px $transparent-background-color;
+	border-radius: 5px;
+	font-style: italic;
+	margin: auto;
+	max-width: 800px;
+	padding: 20px;
+
+	* {
+		text-align: center;
+	}
+
+	header {
+		margin-bottom: 1em;
+		font-weight: 300;
+	}
+
+	h1 {
+		@include heading;
+		font-size: 2em;
+		letter-spacing: 0.05em;
+		margin: 0.2em 0;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+}
